@@ -1,0 +1,57 @@
+
+
+body{
+color:rgb(231, 248, 242);
+margin:auto; 
+background-color:rgb(143, 132, 112);
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+header {
+  background-color: rgb(52, 82, 82);
+  margin:0px 0px 0px 0px;
+  padding:50px 0px 0px 50px;
+  color:rgb(173, 80, 80);
+  font-size:50px;   
+
+
+}
+
+
+a:link, a:visited{
+  margin:20px;
+  color:rgb(21, 177, 204);
+  font-size:19px;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+  color:greenyellow;
+}
+
+.lislink{
+  /*margin:0px 0px 0px 850px;*/
+  text-align: right
+}
+
+nav ul li {
+    list-style:none;
+    display: inline-block;  
+    text-align:right;
+}
+
+
+  h3,h4,.corlis,h2{
+      color:rgb(209, 136, 84);
+}
+
+#lislink{
+  width:960px;
+  margin:auto; 
+}
+
+
+
+

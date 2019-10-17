@@ -1,0 +1,83 @@
+
+
+body{
+background-image: url(https://image.freepik.com/vetores-gratis/desenho-abstrato-em-cinza-claro_53876-59274.jpg);
+background-repeat: repeat;
+background-position: left top;
+background-attachment: fixed;
+font-size: 30px;
+color:rgb(253, 253, 253);
+margin:auto; 
+background-color:rgb(143, 132, 112);
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+a:link, a:visited{
+  color: rgb(51, 0, 0);
+  padding: 3px;
+  background-color:red;
+  text-decoration: none;
+  font-size: 18px;
+  
+}
+a:hover{
+  background-color:greenyellow;
+  text-decoration: underline;
+}
+
+header {
+  background-color: rgb(52, 82, 82);
+  margin:0px 0px 0px 0px;
+  padding:50px 0px 0px 0px;
+  color:rgb(173, 80, 80);
+  font-size:40px;
+}
+
+      /*Flex Box /*
+
+/* Classe mãe*/
+.departamentos{
+  margin:250px;/* Margem das colunas ao browser */
+  display: flex;
+  text-align:center;
+  justify-content: center;
+  
+  /*box-sizing: border-box;Encolhe as colunas para 90% do seu tamanho*/
+  /*justify-content: space-between; Abrindo assim um espaço entre as colunas dependendo da margem*/
+
+
+
+}
+/* Classes filhas */
+
+.atleta{
+  padding:100px;
+  border-width:3px; /* Define expessura  da borda */
+  border-style:solid;  /* Define estilo da da borda */
+  border-color: black;
+  background-image: url(../images/atletas.png) ;
+  margin:20px; /*Margem entre as colunas */
+ 
+}
+
+
+
+.gestor{
+  padding:100px;
+  border-width:3px; /* Define expessura  da borda */
+  border-style:solid;  /* Define estilo da da borda */
+  border-color: black;
+  background-color:red;
+  margin:20px;
+  order:2; /* Posição 2  */
+}
+
+.staff{
+  padding:100px;
+  border-width:3px; /* Define expessura  da borda */
+  border-style:solid;  /* Define estilo da da borda */
+  border-color: black;
+  background-color:purple;
+  margin:20px;
+
+  }
