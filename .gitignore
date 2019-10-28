@@ -61,4 +61,4 @@ typings/
 .next
 
 # .DS_Store don't save because is only a mac file
-.DS_Store
+echo .DS_Store >> ~/.gitignore
