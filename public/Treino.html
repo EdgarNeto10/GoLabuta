@@ -2,7 +2,9 @@
 <html>
     <head>
       <title>GoLabuta</title>
-      <link rel="stylesheet"  type="text/css" href="./stylesheets/style treinamento.css" /> 
+      <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" /> 
+      <script src="treino.js"></script>
+     
     </head>
 
     <body>
@@ -15,16 +17,16 @@
           <li><a href=".">Atletas</a></li>
           <li><a href=".">Plano de treinamentos</a></li>
           <li><a href=".">Planos de nutrição</a></li>
-          <li><a href=".">Calendarios de jogos</a></li>     
+          <li><a href=".">Calendarios de jogos</a></li>      
         <ul>
       </aside>
 
       <main>  
         <section>
           <header>
-            <h2>TREINAMENTO</h2>
+            <h2>TREINO</h2>
           </header>
-        <form action="">
+        <form  method="GET" >
           <section class=plantreino>  
             <section class=treinos>
               <ul>
@@ -42,7 +44,7 @@
               <img src="./images/pe.png" alt="testematerial">
               <input type="checkbox" name="coletes">
         </section>
-        <input type="submit" value="Enviar">
+        <input  id="enviar" type="submit" value="Enviar" onclick= clicar()/>
       </section>
     </form>
   
