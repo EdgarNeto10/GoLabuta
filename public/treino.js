@@ -1,10 +1,9 @@
 
-/*window.alert("GoLabuta") ;*/
+//window.alert("GoLabuta") ;
 
 
 
 function clicar()
 {
-    document.getElementById("enviar").value="Enviado";
-
+    document.getElementById("enviar").value="Enviado"
 }

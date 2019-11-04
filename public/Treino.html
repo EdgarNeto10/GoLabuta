@@ -4,6 +4,8 @@
       <title>GoLabuta</title>
       <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" /> 
       <script src="treino.js"></script>
+      <!--A usar cdn jquery-->
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
      
     </head>
 
@@ -26,7 +28,7 @@
           <header>
             <h2>TREINO</h2>
           </header>
-        <form  method="GET" >
+        <form  method="POST" action="treino.js">
           <section class=plantreino>  
             <section class=treinos>
               <ul>
@@ -44,7 +46,7 @@
               <img src="./images/pe.png" alt="testematerial">
               <input type="checkbox" name="coletes">
         </section>
-        <input  id="enviar" type="submit" value="Enviar" onclick= clicar()/>
+        <input  id="enviar" type="button" value="Enviar" onclick= "clicar()"/>
       </section>
     </form>
   
