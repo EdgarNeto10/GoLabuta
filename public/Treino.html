@@ -6,6 +6,27 @@
       <script src="treino.js"></script>
       <!--A usar cdn jquery-->
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+      $(window).ready(function(){
+       window.alert("Começar treino")
+      
+       $("#enviar").click(function(){
+       var cont = 0;
+       $("#formu").each(function(){
+         if($(this).val() == "")
+             {
+                 $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+                 cont++;
+             }
+        });
+     if(cont == 0)
+         {
+             $("#formu").submit();
+         }
+    });
+       
+       
+      </script>
      
     </head>
 
@@ -28,9 +49,9 @@
           <header>
             <h2>TREINO</h2>
           </header>
-        <form  method="POST" action="treino.js">
-          <section class=plantreino>  
-            <section class=treinos>
+        <form  method="POST" action="treino.js" id='formu'>
+          <section class="plantreino">  
+            <section class="treinos">
               <ul>
                 <li><input type="checkbox" name= "Treino A "> Treino A</li>
                 <li><input type="checkbox" name= "Treino B ">Treino B</li>
@@ -46,7 +67,7 @@
               <img src="./images/pe.png" alt="testematerial">
               <input type="checkbox" name="coletes">
         </section>
-        <input  id="enviar" type="button" value="Enviar" onclick= "clicar()"/>
+        <input  id="enviar" type="button" value="Enviar"/>
       </section>
     </form>
   
