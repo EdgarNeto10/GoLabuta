@@ -1,18 +1,38 @@
 body{
-background-image: url(https://image.freepik.com/vetores-gratis/desenho-abstrato-em-cinza-claro_53876-59274.jpg);
-background-repeat: repeat;
-background-position: left top;
-background-attachment: fixed;
+display: grid;/*Funcionamento:abrir um grid*/ 
+grid-template-columns:repeat(4,1f);
+grid-gap:10px; /*Abre um intervalo entre as colunas*/
+grid-template-areas:
+'header header header header '
+/*'nav nav nav nav'*/
+'main main main main '
+'footer footer footer footer';/*Funcinamento: organização padrão da pagina, as repetições determina as colunas*/ 
+grid-template-columns: auto auto auto;
 font-size: 30px;
 color:rgb(253, 253, 253);
-margin:auto; 
 background-color:rgb(143, 132, 112);
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+
+header{
+  grid-area: header;
+}
+main{
+  grid-area: main
+}
+/*nav{
+  grid-area: nav;
+  background-color: rgb(115, 177, 177);
+}*/
+footer {
+  grid-area:footer;
+  background-color: rgb(52, 82, 82);
+  margin:100px 0px 0px 0px;
 }
 
 a:link, a:visited{
   color: rgb(51, 0, 0);
-  padding: 20px;
+  padding: 10px;
   background-color:red;
   text-decoration: none;
   font-size: 18px;
@@ -23,13 +43,25 @@ a:hover{
   text-decoration: underline;
 }
 
-header {
+body>header {
   background-color: rgb(52, 82, 82);
-  margin:0px 0px 0px 0px;
-  padding:50px 0px 0px 0px;
   color:rgb(173, 80, 80);
   font-size:40px;
 }
+
+nav ul {
+  display:flex; 
+ justify-content: flex-end;
+
+}
+label{
+  display: block
+}
+
+/*nav ul li{
+  margin: 10px;
+  list-style: none;
+}*/
 
       /*Flex Box/*
 
@@ -38,10 +70,12 @@ header {
 
 /*@media(min-width:778px){*/
 .departamentos{
-  margin:250px;/* Margem das colunas ao browser */
+  /*margin:250px; Margem das colunas ao browser */
   display: flex;
-  text-align:center;
-  justify-content: center;
+  text-align: center;
+  justify-content:space-evenly;
+
+
 
   /*box-sizing: border-box;Encolhe as colunas para 90% do seu tamanho*/
   /*justify-content: space-between; Abrindo assim um espaço entre as colunas dependendo da margem*/
@@ -51,36 +85,41 @@ header {
 /* Classes filhas */
 
 .atleta{
-  padding:100px;
+  flex: 1;
   border-width:3px; /* Define expessura  da borda */
   border-style:solid;  /* Define estilo da da borda */
   border-color: black;
-  background-image: url(../images/atletas.png) ;
-  margin:20px; /*Margem entre as colunas */
+  background-image: url("../images/atleta.png");
+  height: 250px;/*altura das imgens*/
+  margin:10px; /*Margem entre as colunas */
   order:3;
+  
  
 }
 
 
 
 .gestor{
-  padding:100px;
+ flex: 1;
   border-width:3px; /* Define expessura  da borda */
   border-style:solid;  /* Define estilo da da borda */
   border-color: black;
+  background-image: url("../images/gestor.png");
   background-color:red;
-  margin:20px;
+  margin:10px;
   order:1; /* Posição 2  */
 
 }
 
 .staff{
-  padding:100px;
+  flex: 1;
   border-width:3px; /* Define expessura  da borda */
   border-style:solid;  /* Define estilo da da borda */
   border-color: black;
+  background-image: url("../images/staff tecnica.png");
   background-color:purple;
-  margin:20px;
+  margin:10px;
+  order:2;
  
 
   }
