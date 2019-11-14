@@ -2,12 +2,17 @@ var mysql = require('mysql'); // A variavel mysql faz a requisição/importa mod
 var express = require('express');// A variavel express faz a requisição/importa modulod express.
 var app = express();
 var http = require('http');
+var url = require('url')
 
 http.createServer(
 function (req, res) {
 res.writeHead(200,
-{'Content-Type': 'text/html'});
-res.end('Hello World!');
+{'Content-Type': '../public/Home-page atleta.html'});
+res.write(q.host+'<br>')
+res.write(q.pathname+'<br>')
+res.write(q.search+'<br>')
+res.write(q.host+'<br>')
+res.end();
 }).listen(8080);
  
 // DBPASS must be defined with the database password
@@ -36,6 +41,8 @@ var conectar =  mysql.createConnection({
     password : 'aom22K8zDk',//pass:aom22K8zDk
     database : 'EGQ9u0m0HB'
 
+
+
 })
 
 //Variavel --conetar-- chama a função connect para determinar o funcionamento da BD quando estiver conectada. 
@@ -55,7 +62,7 @@ conectar.connect(function(error){
 //Paramentros 1-'/'->é o URL para a função  2-req->request  res->response
 //Interagir com BD
 
-app.get('/atleta',function(req,res){
+app.get('../public/index',function(req,res){
 
     connection.query('SELECT * FROM Atleta',function(error,rows, fields){
         if(!!error ){

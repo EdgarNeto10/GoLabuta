@@ -6,29 +6,21 @@
       <script src="treino.js"></script>
       <!--A usar cdn jquery-->
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script>
-      $(window).ready(function(){
-       window.alert("Começar treino")
-      
-       $("#enviar").click(function(){
-       var cont = 0;
-       $("#formu").each(function(){
-         if($(this).val() == "")
-             {
-                 $(this).css({"border" : "1px solid #F00", "padding": "2px"});
-                 cont++;
-             }
-        });
-     if(cont == 0)
-         {
-             $("#formu").submit();
-         }
-    });
-       
-       
-      </script>
      
-    </head>
+      
+      <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin="">
+      </script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+
+
+
+    
+   </head>
+    
 
     <body>
       <header>   
@@ -37,6 +29,7 @@
       <nav>
         <ul>
           <li><a href="./Home-page atleta.html">Home</a></li>
+          <li><a href="./Calendario.html">Calendário Desportivo</a></li>
           <li><a href="./index.html">Log out</a></li>
         </ul>
       </nav>
@@ -53,32 +46,32 @@
       <main>  
         <section>
           <header>
-            <h2>TREINO</h2>
+            <h3>TREINO</h3>
           </header>
         <form  method="POST" action="treino.js" id='formu'>
           <section class="plantreino">  
             
             <section class="treinos">
               <ul>
-                <li><input type="checkbox" name= "Treino A "> Treino A</li>
-                <li><input type="checkbox" name= "Treino B ">Treino B</li>
+                <li>Treino A<input type="checkbox" name= "Treino A "> </li>
+                <li>Treino B<input type="checkbox" name= "Treino B "></li>
                 </ul>
+                <label for="Comentário">Comentário</br></label>
+                <textarea  id="Comentário" placeholder="Comentário" name="comentario"></textarea></br>
             </section>
       
             <section class="material">
-                  <label for="Comentário">Comentário</br></label>
-                  <textarea  id="Comentário" placeholder="Comentário" name="comentario"></textarea></br>
-                  <label>Materiais em falta?</br></label>
-                  <img src="./images/pe.png" alt="testematerial">
-                  <input type="checkbox" name="bola">
-                  <img src="./images/pe.png" alt="testematerial">
-                  <input type="checkbox" name="coletes">
+                  <label><h3>Materiais em falta?</h3></br></label>
+                 <li> Air step <input type="checkbox" name="Air step"> </li>
+                <li> Elastico de resistência <input type="checkbox" name="elastico"> </li>
+                <li>Tornozoleiras <input type="checkbox" name="Tornozoleiras"> </li>
             </section>
-            <input  id="enviar" type="button" value="Enviar"/>
+            <input  id="enviar" type="button" value="Submeter treino"/>
       </section>
     </form>
-  
-
+    <p></p>
+    <div id="mapid"></div>
+    <script src="javascripts/treino.js"> </script>
     </main>
 
     <footer>
