@@ -4,15 +4,14 @@ body{
   grid-gap:10px; /*Abre um intervalo entre as colunas*/
   grid-template-areas:
   'header header header header '
-  'nav nav nav nav'
+  'nav nav nav nav'    
   'aside main main main '
   'footer footer footer footer';/*Funcinamento: organização padrão da pagina, as repetições determina as colunas*/ 
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto;
   font-size: 30px;
   color:rgb(253, 253, 253);
   background-color:rgb(143, 132, 112);
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-
 }
 
 header{
@@ -47,18 +46,14 @@ a:hover{
   grid-area:aside;
   /*background-color: blue;*/
   padding:0px 0px 0px 0px;
-  border-style: solid;
-  border-right-style: solid;
-  border-right-color: black; 
-  border-left-color: rgb(143, 132, 112);
-  border-top-color: rgb(143, 132, 112);
-  border-bottom-color: rgb(143, 132, 112);
   
 
 }
 
 body>header {
   background-color: rgb(52, 82, 82);
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
   color:rgb(173, 80, 80);
   font-size:40px;
 }
@@ -67,23 +62,33 @@ body>header {
 h2 {
   text-align:start;
 }
+nav ul {
+  display:flex; 
+ justify-content: flex-end;
+
+}
+nav ul li{
+  margin: 10px;
+  list-style: none;
+}
+
 
 footer {
   grid-area:footer;
   background-color: rgb(52, 82, 82);
   margin:100px 0px 0px 0px;
+  
 
 }
 
  section ul li{
-  grid-area: aside;
+   grid-area: aside;
   list-style:none;
   font-size: 20px;
 }
 
 label{
   display: block;
-  color:rgb(43, 43, 43)
 }
 
 textarea{
@@ -91,39 +96,44 @@ textarea{
 
 }
 
-
-.atleta ul{
-  display:flex;
-  justify-content: space-evenly;
+.plantreino{
+  grid-area: main;
+  display: flex;
+  /*justify-content:center;*/
+  flex-direction: column;
+  /*margin:0px 0px 0px 100px;*/
+  align-items: flex-start;
 }
-.gestor ul{
-  display:flex;
-  justify-content: space-evenly;
-  }
 
-.staff ul{
-    display:flex;
-    justify-content: space-evenly;
-}
- 
-ul li img{
-   height:100px;
- }
-
- h3{
+h3{
   color:rgb(229, 231, 84);
  }
- 
- ol li{
-  color:rgb(43, 43, 43)
- }
-  
- nav ul {
-   display:flex; 
-  justify-content: flex-end;
- 
- }
- nav ul li{
-   margin: 10px;
-   list-style: none;
- }
+
+#Comentário{
+  height:100px;
+  width:200px;
+}
+
+#mapid { 
+  height: 300px; 
+}
+
+.treinos{
+  color:rgb(43, 43, 43);
+}
+.material{
+  display: block;
+}
+li{
+  color:rgb(43, 43, 43);
+}
+
+p{
+  background-color:  rgb(115, 177, 177);
+  color: rgb(43, 43, 43)
+}
+
+nav a {
+  text-align: end;
+}
+

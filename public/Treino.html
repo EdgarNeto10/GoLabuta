@@ -2,23 +2,10 @@
 <html>
     <head>
       <title>GoLabuta</title>
-      <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" /> 
-      <script src="treino.js"></script>
       <!--A usar cdn jquery-->
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-     
-      
-      <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-      crossorigin="">
-      </script>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-      crossorigin=""/>
-
-
-
-    
+      <script type="text/javascript" src="./javascripts/treino.js"></script>
+      <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" />     
    </head>
     
 
@@ -29,17 +16,16 @@
       <nav>
         <ul>
           <li><a href="./Home-page atleta.html">Home</a></li>
-          <li><a href="./Calendario.html">Calendário Desportivo</a></li>
+          <li><a href="./calendario atleta.html">Calendário Desportivo</a></li>
           <li><a href="./index.html">Log out</a></li>
         </ul>
       </nav>
 
       <aside>
+          <img src="./images/atleta.png">
+          <label>Atleta 1</label>
         <ul>
-          <li><a href=".">Atletas</a></li>
-          <li><a href=".">Plano de treinamentos</a></li>
-          <li><a href=".">Planos de nutrição</a></li>
-          <li><a href=".">Calendarios de jogos</a></li>      
+          <li><a href="#">Planos de nutrição</a></li>    
         <ul>
       </aside>
 
@@ -48,7 +34,7 @@
           <header>
             <h3>TREINO</h3>
           </header>
-        <form  method="POST" action="treino.js" id='formu'>
+      
           <section class="plantreino">  
             
             <section class="treinos">
@@ -66,12 +52,14 @@
                 <li> Elastico de resistência <input type="checkbox" name="elastico"> </li>
                 <li>Tornozoleiras <input type="checkbox" name="Tornozoleiras"> </li>
             </section>
-            <input  id="enviar" type="button" value="Submeter treino"/>
+            <input  id="enviar" type="button" value="Submeter treino" onclick="addComent()"/>
+            <p id="coment"></p>
+            <p id="coment1"></p>
+
       </section>
     </form>
     <p></p>
-    <div id="mapid"></div>
-    <script src="javascripts/treino.js"> </script>
+    
     </main>
 
     <footer>

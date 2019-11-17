@@ -1,21 +1,33 @@
-
-//window.alert("GoLabuta")
-
-
-function clicar()
-{
-    document.getElementById("enviar").value="Enviado"
-    var cont=0;
-    if(cont==0){
-        $('#formu').submit();
+function addComent(){
+    var coment = document.getElementById("Comentário").value
+    $.ajax({
+        URL:"api/treinos",
+        method:"post",
+        data:{
+            addData:coment
+      },
+      success : function(res,status) {
+        if (res.status == "ok"){
+             document.getElementById("coment1").innerHTML = "Item "+
+                                coment+" inserido";
+             document.getElementById("coment").innerHTML="Atleta inseriu um  comentario";
+        }
+        else console.log(res.status);
+    },
+    error : function(err) {
+        console.log(err);
     }
-} 
+    
+})
+      
+//document.getElementById("coment").innerHTML="Atleta inseriu um  comentario";
+    
+   
+}
 
-  /*$.post('',function(data,status)){
-  $(id).html(data);
-  
 
-}*/
+
+
 
       var mymap = L.map('mapid').setView([51.505, -0.09], 13)
        
