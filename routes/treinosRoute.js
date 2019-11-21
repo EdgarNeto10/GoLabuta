@@ -4,26 +4,51 @@ var router = express.Router();
 var treinosDAO=require("../models/treinosDAO");
 
 
+
 /* A chamar os dados, ou seja quando este router ver um pedido(req) com este caminho('/') irá chamar todos  */
-router.get("/:treinosID/coments", function(req, res, next){
+router.get("/:treinosId/comments", function(req, res, next){
 // A ler os dados 
-  treinosDAO.getComents(req.params.treinosID, function(coments){
+  treinosDAO.getComments(req.params.treinosId, function(coments){
     res.send(coments);
   })
 
 })
   
 
-router.post("/:treinosID/coments",function(req, res, next) {
+router.post("/:treinosId/comments",function(req, res, next) {
     var data = req.body;
     console.log(data);
     //o parametro data.addData está ligado ao coment
     // A inserir os dados 
-    treinosDAO.saveComents(req.params.treinosID,data.addData,
+    treinosDAO.saveComments(req.params.treinosId,data.comment,
         function(result) {
             res.send(result);
         })    
 
 });
+
+
+
+router.post('/:treinosId/feedBacks',function(req,res,next){
+   var data =req.body;
+   console.log(data);
+   treinosDAO.saveFeedBacks(req.params.treinosId,data.addfeedBack,
+    function(result){
+      res.send(result);
+    
+    })
+    })
+
+   
+    router.post('/:treinosId/Treinos',function(req,res,next){
+      var data=req.body;
+      console.log(data);
+      treinosDAO.saveTreinos(req.params.treinosId,data.addTreinoA,
+       function(result){
+         res.send(result);
+       
+       });
+});
+
 
 module.exports = router; /* A exportar o router criado */ 

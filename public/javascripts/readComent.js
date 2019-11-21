@@ -1,11 +1,11 @@
-document.onload = function () {
-    var comentario = document.getElementById("com");
-    var intId = setInterval(getComents, 3000);
-    readComent();
-   function readComent() {
-    
+
+window.onload = function () {
+    var comentario = document.getElementById("comment");
+    var intId = setInterval(readComments, 3000);//Local function
+    readComments();
+   function readComments() {
     $.ajax({     
-        url:'api/treinos'+ treinosID,
+        url:'/api/treinos/1/comments',// Caminho para os comentarios no router
         method:'get',
         success: function (res, status) {
             var html = "";
@@ -19,24 +19,16 @@ document.onload = function () {
         }
     })
     
- 
-
-    
+  }
 }
 
-}
+//}
 
 function coment(){
-    if(document.getElementById('v')){
-        document.getElementById('coment').innerHTML="O treino correu bem, aumentei o meu record"
-
-    }   
-    else if(document.getElementById('r')){
-        document.getElementById('coment').innerHTML="Tive dificuldades no final"
-
+    document.getElementById('coment1').innerHTML='oi'
     }
     
-  }
+  
 
 
 

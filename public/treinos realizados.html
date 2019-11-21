@@ -4,8 +4,9 @@
       <title>GoLabuta</title>
       <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino realizado.css" /> 
       <!--A usar cdn jquery-->
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="./javascripts/readComent.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script   type="text/javascript" src= "javascripts/readComent.js" ></script>
+      <script   type="text/javascript" src= "javascripts/addFeedBack.js" ></script>
        
       </head>
     <body>
@@ -46,24 +47,14 @@
               <li><input type="button" value="Velocidade"></li> 
           </div>
         </div>
+        <br>
         Feedback<input id="feed" type="text">
-        <input type="button" value="enviar">
-
-      <label>Atleta 2</label>
-      <div class="dropdown">
-          <button class="dropbtn">Lista de treinos</button>
-          <div class="dropdown-content">
-            <li><input id='r' type="button" value="Resistência" onclick="coment()"></li>
-            <li><input id='v' type="button" value="Velocidade" onclick="coment()"></li> 
-           
-          
-          </div>
-        </div>
-      </section>
-           <label id="l">Comentário</label>
-           <p id=coment></p>
-        
-         
+        <input type='button' value='FeedBack' onclick="addFeedBack()">
+        <p id=msg></p>
+        <br>
+        <label>Comentário:</label>
+        <p id="comment"></p>
+             
     </main>
 
     <footer>

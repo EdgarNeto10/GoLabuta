@@ -37,7 +37,9 @@ a:link, a:visited{
   text-decoration: none;
   font-size: 18px;
   
+  
 }
+
 a:hover{
   background-color:greenyellow;
   text-decoration: underline;
@@ -49,13 +51,11 @@ body>header {
   font-size:40px;
 }
 
-nav ul {
-  display:flex; 
- justify-content: flex-end;
 
-}
 label{
-  display: block
+  display: block;
+  margin-top:100px;
+  color:rgb(255, 255, 255);
 }
 
 /*nav ul li{
