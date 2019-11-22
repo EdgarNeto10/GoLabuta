@@ -6,14 +6,16 @@ var treinosDAO=require("../models/treinosDAO");
 
 
 /* A chamar os dados, ou seja quando este router ver um pedido(req) com este caminho('/') irá chamar todos  */
-router.get("/:treinosId/comments", function(req, res, next){
-// A ler os dados 
-  treinosDAO.getComments(req.params.treinosId, function(coments){
-    res.send(coments);
-  })
+router.get("/", function(req, res, next){//Lê todos os comentários
 
+  treinosDAO.getComments( function(err,result){
+    if(err){
+      res.status(result.code).json(err);
+      return;
+  }
+  res.status(result.code).send(result.data);
+},next)
 })
-  
 
 router.post("/:treinosId/comments",function(req, res, next) {
     var data = req.body;

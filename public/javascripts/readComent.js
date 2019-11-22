@@ -5,12 +5,14 @@ window.onload = function () {
     readComments();
    function readComments() {
     $.ajax({     
-        url:'/api/treinos/1/comments',// Caminho para os comentarios no router
+        url:'/api/treinos',// Caminho para os comentarios no router
         method:'get',
+        contentType:"application/json", // sending in json
+        dataType:"json",// receiving in json
         success: function (res, status) {
             var html = "";
             for (i in res) {
-                html += "<li>" + res[i] + "</li>";
+                html += "<li>" + res[i].coment + "</li>";
             }
             comentario.innerHTML = html;
         },
