@@ -3,6 +3,8 @@
   <head>
     <title>GoLabuta</title>
     <link rel="stylesheet"  type="text/css" href="./stylesheets/style materiais.css" /> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./javascripts/readMateriais.js"></script>
   </head>
   <body>
   
@@ -30,21 +32,11 @@
     </aside>
 
   <main>
-   <h3>Materias</h3>
-   <ol >
-      <li >Air step</li>
-      <input type="radio" name="estado air" value="disponivel">Disponível
-      <input type="radio" name="estado air" value="disponivel">Não disponível
-      <li>Cones</li> 
-      <input type="radio" name="estado cone" value="disponivel">Disponível
-      <input type="radio" name="estado cone" value="disponivel">Não disponível
-      <li>Elastico de resistência</li>
-      <li>Tornozeleiras</li>
-      <li>Barras push-up</li>
-      <li>Prensa de pernas</li>
-      <li>Passadeira silver</li>
-      <li>Banco multifunções</li>
-      <li>Maquina de abnominal</li>
+   <h3>Stock de materiais</h3>
+   <ol id="materiais"> </ol>
+    <p id="estado"> </p> 
+    
+   
   </ol>
   <input type="button" name="atualizar" value="Atualizar estado" onclick="atualizar_estado()">
   </main>

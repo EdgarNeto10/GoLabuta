@@ -1,15 +1,22 @@
+//|----------Variaveis globais----------|
 var treinar;
 var treinos;
 var treinosfeitos;
 var  comentario;
+var requisitar;
 var msg;
+var material;
+//--------------------------------------
+
 window.onload = function () {
    treinos = document.getElementById("treinos");  
    treinosfeitos = document.getElementById("treinosfeitos");  
    comentario = document.getElementById("comment");  
+   requisitar = document.getElementById("requisitar");  
    readTreinos();
    readTreinosFeitos();
    readComments()
+   loadMateriaisDisp() 
 }
 
 
@@ -78,13 +85,34 @@ function readTreinosFeitos() {
     })
     
   }
-  
-function coment(){
-    document.getElementById('coment1').innerHTML='oi'
-    }
-    
-  
 
+
+  
+  function loadMateriaisDisp() {
+    $.ajax({     
+        url:'/api/materiais/',// Caminho para treinos no router
+        method:'get',
+        contentType:"application/json", // sending in json
+        dataType:"json",// receiving in json
+        success: function (res, status) {
+            material=res
+            var html = "";
+            for (i in material) {
+               if(material[i].mat_estado=='disponivel')
+                html += "<li>" +material[i].mat_nome +"<br><p><input type='radio' value=Em falta> Em falta <input type='radio' value=más condições> Em más condições</p>"+"</li>";
+                
+            }
+            requisitar.innerHTML = html;
+           
+        },
+        error: function () {
+
+        }
+    })
+    
+  }
+
+  
 
 
 

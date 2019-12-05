@@ -94,6 +94,9 @@ textarea{
  ol li{
   color:rgb(43, 43, 43)
  }
+ ol li p{
+  color:rgb(159, 243, 243);
+ }
   
  nav ul {
    display:flex; 
@@ -104,5 +107,7 @@ textarea{
    margin: 10px;
    list-style: none;
  }
+
+
 
 

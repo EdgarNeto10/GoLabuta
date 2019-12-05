@@ -10,7 +10,8 @@ var app = express();
 var indexRouter = require('./routes/index');
 /*Está a fazer a requisição do router criado */
 var  commentsRouter = require('./routes/comentsRoutes');  
-var  treinosRouter = require('./routes/treinosRoutes');  
+var  treinosRouter = require('./routes/treinosRoutes'); 
+var  materiaisRouter =  require('./routes/materiaisRoutes'); 
 
 
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 */
 app.use('/api/comentar/',commentsRouter);
 app.use('/api/treinos/',treinosRouter);
+app.use('/api/materiais/',materiaisRouter);
 
 
 // catch 404 and forward to error handler
