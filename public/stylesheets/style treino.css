@@ -124,7 +124,12 @@ h3{
 .material{
   display: block;
 }
+
 li{
   color:rgb(43, 43, 43);
+}
+
+body main p{
+  color: greenyellow;
 }
 

@@ -1,28 +1,27 @@
-function addComment(){
+function addComment() {
     var comment = document.getElementById("comentario").value
+   
     $.ajax({
-        url:"/api/treinos/1/comments",
-        method:"post",
-        data:{
-            comment:comment
-      },
-      success : function(res,status) {
-        if (res.status == "ok"){
-             document.getElementById("coment").innerHTML="Atleta inseriu um  comentário";
+        url: "/api/comentar/",
+        method: "post",
+        data: {
+            comment: comment
+        },
+        success : function(res,status) {
+            if (res.status == "ok")
+                 document.getElementById("submeter").innerHTML = 'Treino submetido com sucesso'                             
+            else console.log(res.status);
+        },
+        error : function(err) {
+            console.log(err);
         }
-        else console.log(res.status);
-    },
-    error : function(err) {
-        console.log(err);
-    }
-    
-})
 
+    })
 
+    document.getElementById("submeter").innerHTML = 'Treino submetido com sucesso' 
 }
 
 
 
 
 
-     

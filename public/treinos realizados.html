@@ -5,8 +5,8 @@
       <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino realizado.css" /> 
       <!--A usar cdn jquery-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script   type="text/javascript" src= "javascripts/readComent.js" ></script>
       <script   type="text/javascript" src= "javascripts/addFeedBack.js" ></script>
+      <script   type="text/javascript" src= "javascripts/readTreino.js" ></script>
        
       </head>
     <body>
@@ -39,7 +39,8 @@
       -->
      
       <label>Atleta 1</label> 
-      <div class="dropdown">
+      <ul id="treinosfeitos"></ul>
+      <!--<div class="dropdown">
           <button class="dropbtn">Lista de treinos</button>
           <div class="dropdown-content">
               <li><input type="button" value="Musculação" onclick="coment()"></li> 
@@ -47,13 +48,14 @@
               <li><input type="button" value="Velocidade"></li> 
           </div>
         </div>
-        <br>
-        Feedback<input id="feed" type="text">
-        <input type='button' value='FeedBack' onclick="addFeedBack()">
+      -->
         <p id=msg></p>
         <br>
         <label>Comentário:</label>
         <p id="comment"></p>
+        <br>
+        Feedback<input id="feed" type="text">
+        <input type='button' value='FeedBack' onclick="addFeedBack()">
              
     </main>
 
