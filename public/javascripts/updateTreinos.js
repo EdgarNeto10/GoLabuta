@@ -1,27 +1,34 @@
 
-function updateTreinos(){
-    var addTreinoA = document.getElementById('A').value
-    var addTreinoB = document.getElementById('B').value
+//var addTreinoA = document.getElementById('treinos').value
+//var addTreinoB = document.getElementById('treinos').value
+var str;
+//-------------------------------------------------------------
+
+function validarTreino() {    
+    var r = confirm("Realizou o treino?");
+    if (r == true) {
+        readTreinos()
+    } 
     
-$.ajax({
-    url:"/api/treinos/1/Treinos",
-    method:"post",
-    data:{
-        TreinoA:addTreinoA ,
-        TreinoB:addTreinoB   
-  
-    },
+}
 
-    success : function(res,status) {
-        if (res.status == "ok"){
-             document.getElementById("trein").innerHTML="Treino submetido com sucesso";
+function updateTreinos() {
+    $.ajax({
+        url: "/api/treinos/" + document.getElementById('treinar').value,
+        method: "put",
+        data: {
+            estado: document.getElementById("real").value
+        },
+
+        success: function (res) {
+            validarTreino() 
+            document.getElementById("submeter").innerHTML = "ola";
+
+        },
+        error: function (err) {
+            console.log(err);
         }
-        else console.log(res.status);
-    },
-    error : function(err) {
-        console.log(err);
-    }
-      
-})
 
+
+    })
 }

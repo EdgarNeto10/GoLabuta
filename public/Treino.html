@@ -6,6 +6,7 @@
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script type="text/javascript" src="./javascripts/addComment.js"></script>
       <script type="text/javascript" src='./javascripts/readTreino.js'></script>
+      <script type="text/javascript" src='./javascripts/updateTreinos.js'></script>
       <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" />   
   
    </head>
@@ -40,29 +41,27 @@
           <section class="plantreino">  
             
             <section class="treinos">
+           
               <ul id="treinos">
-               <!--
-                  <li>Treino A<input id='A' type="checkbox" name= "Treino A "> </li>
-                <li>Treino B<input id='B' type="checkbox" name= "Treino B "></li>
-               -->
+              
                
               </ul>
+
+              <input id='real' type="button" value="Realizado" onclick="updateTreinos()">
               <p id="comentar"></p>
                 <label for="comentario">Comentário</br></label>
                 <textarea  id="comentario" placeholder="Comentário" name="comentario"></textarea></br>
+                <p id='comentarios'></p>
+                <input  id="enviar" type="button" value="Realizar comentário"  onclick="addComment()"/> 
             </section>
             <p id="coment"></p> 
             <section class="material">
                   <label><h3>Requisitar materiais</h3></br></label>
-                <!--
-                  li> Air step <input type='checkbox' name="Air step"> </li>
-                 <li> Elastico de resistência <input type="checkbox" name="elastico"> </li>
-                 <li>Tornozoleiras <input type="checkbox" name="Tornozoleiras"> </li>
-                -->
+      
                 <ul id="requisitar" ></ul>
             </section>
             <p></p>
-           <input  id="enviar" type="button" value="Submeter treino"  onclick="addComment()"/> 
+           <input  id="enviar" type="button" value="Submeter treino"  onclick=""/> 
            
       </section>
       <p id='submeter'></p>

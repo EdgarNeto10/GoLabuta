@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
   //o parametro data.addData está ligado ao coment
   // A inserir os dados 
    comentariosDAO.saveComments( data.comment,
-    function (result) {
+    function (err,result) {
       res.send(result);
     })
 

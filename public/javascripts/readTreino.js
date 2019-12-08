@@ -6,7 +6,7 @@ var  comentario;
 var requisitar;
 var msg;
 var material;
-//--------------------------------------
+//---------------------------------------
 
 window.onload = function () {
    treinos = document.getElementById("treinos");  
@@ -22,17 +22,20 @@ window.onload = function () {
 
 function readTreinos() {
     $.ajax({     
-        url:'/api/treinos/',// Caminho para treinos no router
+        url:'/api/treinos/',
         method:'get',
         contentType:"application/json", // sending in json
         dataType:"json",// receiving in json
         success: function (res, status) {
             treinar=res
-            var html = "";
+            var html=""
             for (i in treinar) {
                 if(treinar[i].treino_estado=='Por realizar')
-                html += "<li>" + treinar[i].treino_tipo + "<input id=treinos type='checkbox'> </li>";
-
+                html += "<li>" + treinar[i].treino_tipo + "<input id='treinar' type='checkbox' value='"+treinar[i].treino_id+"' onclick='updateTreinos(i)' > </li>";
+              /* html += "<option value='" + treinar[i].treino_id + "'>"
+               + treinar[i].treino_tipo + "</option>"
+            */
+               
             }
             treinos.innerHTML = html;
            
@@ -46,7 +49,7 @@ function readTreinos() {
 
 function readTreinosFeitos() {
     $.ajax({     
-        url:'/api/treinos/',// Caminho para treinos no router
+        url:'/api/treinos/',
         method:'get',
         contentType:"application/json", // sending in json
         dataType:"json",// receiving in json
@@ -68,7 +71,7 @@ function readTreinosFeitos() {
 
   function readComments() {
     $.ajax({     
-        url:'/api/comentar/',// Caminho para os comentarios no router
+        url:'/api/comentar/',
         method:'get',
         contentType:"application/json", // sending in json
         dataType:"json",// receiving in json
@@ -90,7 +93,7 @@ function readTreinosFeitos() {
   
   function loadMateriaisDisp() {
     $.ajax({     
-        url:'/api/materiais/',// Caminho para treinos no router
+        url:'/api/materiais/',
         method:'get',
         contentType:"application/json", // sending in json
         dataType:"json",// receiving in json
@@ -99,7 +102,7 @@ function readTreinosFeitos() {
             var html = "";
             for (i in material) {
                if(material[i].mat_estado=='disponivel')
-                html += "<li>" +material[i].mat_nome +"<br><p><input type='radio' value=Em falta> Em falta <input type='radio' value=más condições> Em más condições</p>"+"</li>";
+                html += "<li>" +material[i].mat_nome +"<br><p><input type='radio' id='falta' name='estado"+[i]+"' value='Em falta'> Em falta <input type='radio' id='mas' name='estado"+[i]+"' value='más condições'> Em más condições</p>"+"</li>";
                 
             }
             requisitar.innerHTML = html;

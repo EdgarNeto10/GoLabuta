@@ -20,7 +20,7 @@ function readAllMateriais() {
             var html = "";
             for (i in material) {
     
-                html += "<li>" +material[i].mat_nome +"<br><p><input id='disponivel' type='radio' value=Disponível> Disponível <input id='nao_disponivel' type='radio' value=Não disponível> Não disponível</p></li>";
+                html += "<li>" +material[i].mat_nome +"<br><p><input id='disponivel' type='radio' name='estado"+[i]+"'  value=Disponível> Disponível <input id='nao_disponivel' name='estado"+[i]+"'  type='radio' value=Não disponível> Não disponível</p></li>";
                 
             }
             materiais.innerHTML = html;

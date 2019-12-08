@@ -1,3 +1,5 @@
+c=0;
+//-------------------------------------------------------------
 function addComment() {
     var comment = document.getElementById("comentario").value
    
@@ -8,8 +10,9 @@ function addComment() {
             comment: comment
         },
         success : function(res,status) {
+            c=c+1
             if (res.status == "ok")
-                 document.getElementById("submeter").innerHTML = 'Treino submetido com sucesso'                             
+                 document.getElementById("comentarios").innerHTML = [c]+'º comentário realizado com sucesso'                             
             else console.log(res.status);
         },
         error : function(err) {
@@ -17,8 +20,6 @@ function addComment() {
         }
 
     })
-
-    document.getElementById("submeter").innerHTML = 'Treino submetido com sucesso' 
 }
 
 
