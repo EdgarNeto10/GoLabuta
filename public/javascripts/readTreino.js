@@ -6,6 +6,9 @@ var  comentario;
 var requisitar;
 var msg;
 var material;
+var atletas;
+var atleta_nome;
+
 //---------------------------------------
 
 window.onload = function () {
@@ -13,10 +16,13 @@ window.onload = function () {
    treinosfeitos = document.getElementById("treinosfeitos");  
    comentario = document.getElementById("comment");  
    requisitar = document.getElementById("requisitar");  
+   atleta_nome = document.getElementById("atleta_nome");  
+  
    readTreinos();
    readTreinosFeitos();
    readComments()
    loadMateriaisDisp() 
+   readAtletas()
 }
 
 
@@ -31,13 +37,12 @@ function readTreinos() {
             var html=""
             for (i in treinar) {
                 if(treinar[i].treino_estado=='Por realizar')
-                html += "<li>" + treinar[i].treino_tipo + "<input id='treinar' type='checkbox' value='"+treinar[i].treino_id+"' onclick='updateTreinos(i)' > </li>";
-              /* html += "<option value='" + treinar[i].treino_id + "'>"
-               + treinar[i].treino_tipo + "</option>"
-            */
+                html += "<li>"+ treinar[i].treino_tipo + "<input id='treinar' type='checkbox' value='"+treinar[i].treino_id+"' onclick='updateTreinos(i)' > </li>";
                
             }
             treinos.innerHTML = html;
+            //atleta_nome.innerHTML= nome;
+
            
         },
         error: function () {
@@ -81,6 +86,28 @@ function readTreinosFeitos() {
                 html += "<li>" + res[i].coment + "</li>";
             }
             comentario.innerHTML = html;
+        },
+        error: function () {
+
+        }
+    })
+    
+  }
+
+
+  function readAtletas() {
+    $.ajax({     
+        url:'/api/atletas/',//
+        method:'get',
+        contentType:"application/json", // sending in json
+        dataType:"json",// receiving in json
+        success: function (res, status) {
+            var html = "";
+             atletas=res
+            for (i in atletas) {
+              html += atletas[i].atleta_nome 
+            }
+            atleta_nome.innerHTML = html;
         },
         error: function () {
 

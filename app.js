@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var  commentsRouter = require('./routes/comentsRoutes');  
 var  treinosRouter = require('./routes/treinosRoutes'); 
 var  materiaisRouter =  require('./routes/materiaisRoutes'); 
+var atletasRouter = require('./routes/atletasRoutes'); 
 
 
 
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/comentar/',commentsRouter);
 app.use('/api/treinos/',treinosRouter);
 app.use('/api/materiais/',materiaisRouter);
+app.use('/api/atletas/', atletasRouter);
 
 
 // catch 404 and forward to error handler

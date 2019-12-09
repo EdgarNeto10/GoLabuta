@@ -1,28 +1,55 @@
-
-//var addTreinoA = document.getElementById('treinos').value
-//var addTreinoB = document.getElementById('treinos').value
 var str;
+var c;
+var realizado = 'Realizado'
+var PorRealizar = 'Por realizar'
 //-------------------------------------------------------------
 
-function validarTreino() {    
-    var r = confirm("Realizou o treino?");
-    if (r == true) {
-        readTreinos()
-    } 
-    
-}
 
 function updateTreinos() {
     $.ajax({
         url: "/api/treinos/" + document.getElementById('treinar').value,
         method: "put",
         data: {
-            estado: document.getElementById("real").value
+            estado: realizado
         },
 
         success: function (res) {
-            validarTreino() 
-            document.getElementById("submeter").innerHTML = "ola";
+            validarTreino();
+            function validarTreino() {
+                c = c + 1
+                var r = confirm("Realizou o treino?");
+                if (r == true) {
+                    readTreinos()
+                    if (c == 1)
+                        document.getElementById("submeter").innerHTML = "Realizou " + [c] + " treino";
+                    else
+                        document.getElementById("submeter").innerHTML = "Realizou " + [c] + " treinos";
+                }
+                else if (r == false) {
+                    updateTreinosReverse()
+                }
+
+
+            }
+
+        },
+        error: function (err) {
+            console.log(err);
+        }
+
+
+    })
+}
+
+function updateTreinosReverse() {
+    $.ajax({
+        url: "/api/treinos/" + document.getElementById('treinar').value,
+        method: "put",
+        data: {
+            estado: PorRealizar
+        },
+
+        success: function (res) {
 
         },
         error: function (err) {

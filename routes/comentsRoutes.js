@@ -2,13 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var comentariosDAO = require("../models/comentariosDAO");
-/*
-router.get('/',function(req, res, next){
-comentariosDAO.getce(function(resulst){
-  res.send(resulst)
-})
-})
-*/
+
 
 router.get('/', function (req, res, next) {
 
