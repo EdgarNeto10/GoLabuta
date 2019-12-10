@@ -37,7 +37,7 @@ function readTreinos() {
             var html=""
             for (i in treinar) {
                 if(treinar[i].treino_estado=='Por realizar')
-                html += "<li>"+ treinar[i].treino_tipo + "<input id='treinar' type='checkbox' value='"+treinar[i].treino_id+"' onclick='updateTreinos(i)' > </li>";
+                html += "<li>"+ treinar[i].treino_tipo + "<input id='treinar' type='checkbox'  value='"+treinar[i].treino_id+"' onclick='updateTreinos()' > </li>";
                
             }
             treinos.innerHTML = html;

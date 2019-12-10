@@ -13,6 +13,7 @@ var  commentsRouter = require('./routes/comentsRoutes');
 var  treinosRouter = require('./routes/treinosRoutes'); 
 var  materiaisRouter =  require('./routes/materiaisRoutes'); 
 var atletasRouter = require('./routes/atletasRoutes'); 
+var calendariosRouter = require('./routes/calendariosRoutes'); 
 
 
 
@@ -43,6 +44,7 @@ app.use('/api/comentar/',commentsRouter);
 app.use('/api/treinos/',treinosRouter);
 app.use('/api/materiais/',materiaisRouter);
 app.use('/api/atletas/', atletasRouter);
+app.use('/api/calendarios/',  calendariosRouter);
 
 
 // catch 404 and forward to error handler

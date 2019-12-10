@@ -18,11 +18,6 @@ router.get('/', function (req, res, next) {//Lê todos os tipos de treinos
 
 
 
-
-
-
-
-
 router.post('/:treinosId/feedBacks', function (req, res, next) {
   var data = req.body;
   console.log(data);

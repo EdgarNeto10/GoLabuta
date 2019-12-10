@@ -2,15 +2,19 @@ var str;
 var c;
 var realizado = 'Realizado'
 var PorRealizar = 'Por realizar'
+var n;
 //-------------------------------------------------------------
+
+
+
 
 
 function updateTreinos() {
     $.ajax({
-        url: "/api/treinos/" + document.getElementById('treinar').value,
+        url: "/api/treinos/" + document.getElementById("treinar").value,
         method: "put",
         data: {
-            estado: realizado
+            estado:realizado
         },
 
         success: function (res) {
@@ -50,7 +54,8 @@ function updateTreinosReverse() {
         },
 
         success: function (res) {
-
+            readTreinos()
+            
         },
         error: function (err) {
             console.log(err);

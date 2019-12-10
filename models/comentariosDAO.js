@@ -1,12 +1,6 @@
 
 var pool = require('./MysqlConn').pool;
 
-var  ce=['ola']
-module.exports.getce=function(callback){
-    callback(ce)
-}
-
-
 
 module.exports.getComments=function(callback,next){
    pool.getConnection(function(err,conn){
