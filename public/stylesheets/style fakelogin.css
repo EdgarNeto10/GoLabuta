@@ -27,7 +27,7 @@ main{
 footer {
   grid-area:footer;
   background-color: rgb(52, 82, 82);
-  margin:100px 0px 0px 0px;
+  margin:50px 0px 0px 0px;
 }
 
 a:link, a:visited{
@@ -41,7 +41,7 @@ a:link, a:visited{
 }
 
 a:hover{
-  background-color:greenyellow;
+  /*background-color:greenyellow;*/
   text-decoration: underline;
 }
 
