@@ -14,6 +14,7 @@ var  treinosRouter = require('./routes/treinosRoutes');
 var  materiaisRouter =  require('./routes/materiaisRoutes'); 
 var atletasRouter = require('./routes/atletasRoutes'); 
 var calendariosRouter = require('./routes/calendariosRoutes'); 
+var feedbacksRouter = require('./routes/feedbacksRoutes'); 
 
 
 
@@ -40,11 +41,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Ou seja quando quando qualquer pedido chegar no meu servidor com o caminho criado (ex:/treinos) 
   ele  é direcionado para router ligado ao mesmo (ex:treinosRouter)
 */
-app.use('/api/comentar/',commentsRouter);
-app.use('/api/treinos/',treinosRouter);
-app.use('/api/materiais/',materiaisRouter);
+app.use('/api/comentar/', commentsRouter);
+app.use('/api/treinos/', treinosRouter);
+app.use('/api/materiais/', materiaisRouter);
 app.use('/api/atletas/', atletasRouter);
-app.use('/api/calendarios/',  calendariosRouter);
+app.use('/api/calendarios/', calendariosRouter);
+app.use('/api/feedBacks/', feedbacksRouter);
 
 
 // catch 404 and forward to error handler

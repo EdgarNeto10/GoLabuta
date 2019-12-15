@@ -2,6 +2,29 @@
 var pool = require('./MysqlConn').pool;
 
 
+module.exports.getAllTreinos=function(callback,next){
+    pool.getConnection(function(err,conn){
+       if (err) {
+           callback(err,{code: 500, status: "Error in the connection to the database"})
+           return;
+       }
+       conn.query("select * from treino ",
+       function(err, results) {
+           // VERY IMPORTANT: Always release a connection after you don't need it
+           // You can make more then one query but in the last one release it
+
+           if (err) {
+               callback(err,{code: 500, status: "Error in a database query"})
+               return;
+           }        
+            callback(false, {code: 200, status:"ok", data: results})
+        }) 
+          
+ })
+}
+
+
+
 
 module.exports.updateTreinos= function(idTreino,newestado,callback) {
     pool.getConnection(function(err,conn){
@@ -20,13 +43,14 @@ module.exports.updateTreinos= function(idTreino,newestado,callback) {
 }
 
 
-module.exports.getTreinos=function(callback,next){
+module.exports.getTreinos=function(idAtleta,callback,next){
     pool.getConnection(function(err,conn){
        if (err) {
            callback(err,{code: 500, status: "Error in the connection to the database"})
            return;
        }
-       conn.query("select treino_id,treino_tipo,treino_estado,treino_data from treino  ", function(err, results) {
+       conn.query("select treino_id,treino_tipo,treino_estado,treino_data,atleta_id,atleta_atle_trein from  treino t join Atle_Trein a on  t.treino_id = a.treino_atle_trein join Atleta x on a.atleta_atle_trein = x.atleta_id where atleta_atle_trein=? ",
+       [idAtleta],function(err, results) {
            // VERY IMPORTANT: Always release a connection after you don't need it
            // You can make more then one query but in the last one release it
 
@@ -40,6 +64,8 @@ module.exports.getTreinos=function(callback,next){
  })
 }
 
+
+/*
 module.exports.saveTreinos=function(treinosId, treino, callback){
     pool.getConnection(function(err,conn){
         if (err) {
@@ -61,28 +87,6 @@ module.exports.saveTreinos=function(treinosId, treino, callback){
   } 
 
  
-  /*var results = [];
- // calculates
+*/
 
- for(i in users) //filtrar por unidade no array
- if(users[i].roles.include('admin'))//se  for o admin ele lê o resultado .
- 
- results.push({
- name: users[i].name, email: users[i].email
- })
- callback(results);
- */
-
-
-
-
-module.exports.getFeedBacks=function(feedBacksId, callBack){
-   callBack(feedBacks);
-}
-
-module.exports.saveFeedBacks=function(feedBacksId,feedBack ,callBack){
-   feedBacks.push(feedBack)
-   callBack({status:'ok', feedBack:feedBack})
-
-}
 

@@ -6,7 +6,21 @@ var calendariosDAO = require("../models/calendariosDAO");
 
 router.get('/', function (req, res, next) {
 
-    calendariosDAO.getCalendarios(function (err,result) {
+    calendariosDAO.getAllCalendarios(function (err,result) {
+      if (err) {
+        res.status(result.code).json(err);
+        return;
+      }
+      res.status(result.code).send(result.data);
+    }, next)
+  })
+  
+
+
+
+  router.get('/:idCalendario', function (req, res, next) {
+
+    calendariosDAO.getCalendarios(req.params.idCalendario,function (err,result) {
       if (err) {
         res.status(result.code).json(err);
         return;

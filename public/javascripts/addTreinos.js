@@ -23,6 +23,30 @@ function addComment() {
 }
 
 
+function addFeedBack(){
+    var feedback = document.getElementById('feedback').value
+   
+   $.ajax({
+       url:"/api/feedBacks",
+       method:"post",
+       data:{
+           feedback:feedback
+       },
+       success : function(res,status) {
+           if (res.status == "ok"){
+                document.getElementById("msg").innerHTML="FeedBack inserido com sucesso";
+           }
+           else console.log(res.status);
+       },
+       error : function(err) {
+           console.log(err);
+       }
+       
+   })
+   
+   }
+
+
 
 
 

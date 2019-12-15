@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="./stylesheets/style treino realizado.css" />
   <!--A usar cdn jquery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/addFeedBack.js"></script>
+  <script type="text/javascript" src="javascripts/addTreinos.js"></script>
   <script type="text/javascript" src="javascripts/readTreino.js"></script>
 
 </head>
@@ -37,7 +37,11 @@
     <h3>Treinos realizados</h3>
     <section class="atletas">
       
-      <label>Atleta 1</label>
+        Selecionar um atleta:
+        <select id="select" >
+              
+        </select>
+        <input type="button" value="Mudar" onclick='readTreinosFeitos()'>
       <ul id="treinosfeitos"></ul>
 
       <p id=msg></p>
@@ -45,7 +49,8 @@
       <label>Comentário:</label>
       <ol id="comment"></ol>
       <br>
-      Feedback<input id="feed" type="text">
+      <label>Realizar FeedBack</label>
+      <textarea  id="feedback" placeholder="FeedBack"></textarea>
       <input type='button' value='FeedBack' onclick="addFeedBack()">
 
   </main>

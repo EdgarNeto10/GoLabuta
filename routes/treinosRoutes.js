@@ -4,9 +4,9 @@ var router = express.Router();
 var treinosDAO = require("../models/treinosDAO");
 
 
-router.get('/', function (req, res, next) {//Lê todos os tipos de treinos
+router.get('/',function (req, res, next) {//Lê todos os tipos de treinos
 
-  treinosDAO.getTreinos(function (err, result) {
+  treinosDAO.getAllTreinos(function (err, result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -16,28 +16,16 @@ router.get('/', function (req, res, next) {//Lê todos os tipos de treinos
 })
 
 
+router.get('/:idAtleta',function (req, res, next) {//Lê todos os tipos de treinos
 
-
-router.post('/:treinosId/feedBacks', function (req, res, next) {
-  var data = req.body;
-  console.log(data);
-  treinosDAO.saveFeedBacks(req.params.treinosId, data.addfeedBack,
-    function (result) {
-      res.send(result);
-
-    })
+  treinosDAO.getTreinos(req.params.idAtleta,function (err, result) {
+    if (err) {
+      res.status(result.code).json(err);
+      return;
+    }
+    res.status(result.code).send(result.data);
+  }, next)
 })
-
-
-router.post('/:treinosId/Treinos', function (req, res, next) {
-  var data = req.body;
-  console.log(data);
-  treinosDAO.saveTreinos(req.params.treinosId, data,
-    function (result) {
-      res.send(result);
-
-    });
-});
 
 
 

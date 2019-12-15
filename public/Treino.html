@@ -4,7 +4,7 @@
       <title>GoLabuta</title>
       <!--A usar cdn jquery-->
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script type="text/javascript" src="./javascripts/addComment.js"></script>
+      <script type="text/javascript" src="./javascripts/addTreinos.js"></script>
       <script type="text/javascript" src='./javascripts/readTreino.js'></script>
       <script type="text/javascript" src='./javascripts/updateTreinos.js'></script>
       <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" />   
@@ -37,7 +37,13 @@
           <header>
             <h3>TREINO</h3>
           </header>
-      
+          <p>
+            Selecionar qualquer atleta :
+            <select id="select" >
+                  
+            </select>
+            <input type="button" value="Mudar" onclick='readTreinos()'>
+           </p>
           <section class="plantreino">  
             
             <section class="treinos">
@@ -56,16 +62,12 @@
             </section>
             <p id="coment"></p> 
             <section class="material">
-                  <label><h3>Requisitar materiais</h3></br></label>
+                  <label><p><label>Pretende requisitar materiais ?</label><input onclick="loadMateriaisDisp()" value='SIM'type="button"></p></br></label>
       
                 <ul id="requisitar" ></ul>
             </section>
-            <p></p>
-           <input  id="enviar" type="button" value="Submeter treino"  onclick=""/> 
-           
+          
       </section>
-    
-    <p></p>
     
     </main>
 

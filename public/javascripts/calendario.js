@@ -3,7 +3,7 @@ var partida;
 var chegada;
 var jogo;
 var encontro;
-
+var local;
 //--------------------------------------------------------------------------
 
 
@@ -31,11 +31,12 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}{r}.png', {
 
 window.onload = function () {
     readCalendedario()
-    encontro = document.getElementById('encontro')
+    encontro = document.getElementById('encontro');
+    local = document.getElementById('local');
 
 }
 
-function readMarker() {
+function readAllMarker() {
     $.ajax({
         url: '/api/calendarios/',
         method: 'get',
@@ -49,7 +50,36 @@ function readMarker() {
                 L.Routing.control({
                     waypoints: [
                        L.latLng(chegada[i].cal_desportivo_lat, chegada[i].cal_desportivo_long),
-                       L.latLng(partida[i].atleta_lat, partida[i].atleta_long)
+                       L.latLng(partida[i].equipa_lat, partida[i].equipa_long)
+                    ],
+                    routeWhileDragging: false
+                }).addTo(mymap);
+
+            }         
+
+        },
+        error: function () {
+
+        }
+    })
+
+}
+
+function readMarker() {
+    $.ajax({
+        url: '/api/calendarios/3',
+        method: 'get',
+        contentType: "application/json", // sending in json
+        dataType: "json",// receiving in json
+        success: function (res, status) {
+            chegada = res
+            partida =res
+            for (i in chegada) {
+
+                L.Routing.control({
+                    waypoints: [
+                       L.latLng(chegada[i].cal_desportivo_lat, chegada[i].cal_desportivo_long),
+                       L.latLng(partida[i].equipa_lat, partida[i].equipa_long)
                     ],
                     routeWhileDragging: false
                 }).addTo(mymap);
@@ -66,6 +96,7 @@ function readMarker() {
 
 function readCalendedario() {
     $.ajax({     
+
         url:'/api/calendarios/',
         method:'get',
         contentType:"application/json", // sending in json
@@ -74,10 +105,11 @@ function readCalendedario() {
             jogo=res
             var html=""
             for (i in jogo) {
-                html += "<p onclick= style='background-color:lime'>" +jogo[i].cal_desp_jogo+ " <input type='button' value='Localização' onclick='readMarker()'></p>";             
+                html += "<p  onclick= style='background-color:lime'>" +jogo[i].cal_desp_data+' '+jogo[i].cal_desp_jogo+ " <input type='button' id='local' value='Localização' onclick='readMarker()'></p>";             
+        
             }
             encontro.innerHTML = html;
-         
+          
 
            
         },
