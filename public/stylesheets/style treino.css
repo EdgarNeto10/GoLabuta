@@ -38,7 +38,7 @@ a:link, a:visited{
 }
 
 a:hover{
-  background-color:greenyellow;
+  /*background-color:greenyellow;*/
   text-decoration: underline;
 }
 
