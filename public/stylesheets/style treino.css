@@ -5,7 +5,7 @@ body{
   grid-template-areas:
   'header header header header '
   'nav nav nav nav'    
-  'aside main main main '
+  'void main main main '
   'footer footer footer footer';/*Funcinamento: organização padrão da pagina, as repetições determina as colunas*/ 
   grid-template-columns: auto auto auto;
   font-size: 30px;
@@ -27,6 +27,7 @@ main{
 grid-area: main;/*Diz ao sistema o local da pagina que determinado elemento deve ser colocado */ 
 width: auto;
 flex-direction: column;
+
 }
 
 a:link, a:visited{
@@ -38,7 +39,7 @@ a:link, a:visited{
 }
 
 a:hover{
-  /*background-color:greenyellow;*/
+  background-color:greenyellow;
   text-decoration: underline;
 }
 
@@ -52,10 +53,8 @@ a:hover{
 
 body>header {
   background-color: rgb(52, 82, 82);
-  margin:0px 0px 0px 0px;
-  padding:0px 0px 0px 0px;
   color:rgb(173, 80, 80);
-  font-size:40px;
+  font-size:30px;
 }
 
 
@@ -64,11 +63,11 @@ h2 {
 }
 nav ul {
   display:flex; 
- justify-content: flex-end;
+ justify-content: flex-start;
 
 }
 nav ul li{
-  margin: 10px;
+  margin-right: 10px;
   list-style: none;
 }
 
@@ -133,3 +132,14 @@ body main p{
   color: greenyellow;
 }
 
+img {
+  border-radius: 50%;
+  height:40px ;
+  margin-right: 20px;
+
+  }
+
+  .move {
+    display: flex;
+  
+  }

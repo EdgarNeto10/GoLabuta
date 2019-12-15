@@ -165,7 +165,7 @@ function readNotificaçoes() {
 
             feedbacks = res
             for (i in feedbacks) {
-                html += '<li style=color:white >' + feedbacks[i].staff_feedback + '</li>'
+                html += '<li>' + feedbacks[i].staff_feedback + '</li>'
 
             }
 
