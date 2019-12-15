@@ -82,7 +82,7 @@ function readTreinosFeitos() {
 
 function readComments() {
     $.ajax({
-        url: '/api/comentar/',
+        url: '/api/comentarios/',
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json

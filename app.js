@@ -17,12 +17,13 @@ var calendariosRouter = require('./routes/calendariosRoutes');
 var feedbacksRouter = require('./routes/feedbacksRoutes'); 
 
 
-
+/*
 app.use(function(req, res , next){
 req.con=con;
 next();
 
 })
+*/
 
 
 
@@ -41,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Ou seja quando quando qualquer pedido chegar no meu servidor com o caminho criado (ex:/treinos) 
   ele  é direcionado para router ligado ao mesmo (ex:treinosRouter)
 */
-app.use('/api/comentar/', commentsRouter);
+app.use('/api/comentarios/', commentsRouter);
 app.use('/api/treinos/', treinosRouter);
 app.use('/api/materiais/', materiaisRouter);
 app.use('/api/atletas/', atletasRouter);

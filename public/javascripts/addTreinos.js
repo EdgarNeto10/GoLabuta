@@ -4,7 +4,7 @@ function addComment() {
     var comment = document.getElementById("comentario").value
    
     $.ajax({
-        url: "/api/comentar/",
+        url: "/api/comentarios/",
         method: "post",
         data: {
             comment: comment
