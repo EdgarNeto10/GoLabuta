@@ -16,7 +16,7 @@ module.exports.getComments=function(callback,next){
               callback(err,{code: 500, status: "Error in a database query"})
               return;
           } 
-          callback(false, {code: 200, status:"ok", data: results})
+         callback(false, {code: 200, status:"ok", data: results})
       })
   })
 
@@ -38,7 +38,7 @@ module.exports.saveComments= function( coment, callback){
                 callback(err,{code: 500, status: "Error in a database query"})
                 return;
             } 
-               callback(false, {code: 200, status:"ok", data: results})
+             callback(false, {code: 200, status:"ok", data: results})
         })
     })
   

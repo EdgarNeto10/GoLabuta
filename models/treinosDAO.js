@@ -12,12 +12,12 @@ module.exports.getAllTreinos=function(callback,next){
        function(err, results) {
            // VERY IMPORTANT: Always release a connection after you don't need it
            // You can make more then one query but in the last one release it
-
+           conn.release();
            if (err) {
                callback(err,{code: 500, status: "Error in a database query"})
                return;
            }        
-            callback(false, {code: 200, status:"ok", data: results})
+          callback(false, {code: 200, status:"ok", data: results})
         }) 
           
  })
@@ -37,7 +37,7 @@ module.exports.updateTreinos= function(idTreino,newestado,callback) {
         [newestado,idTreino],
         function(err, result) {
             console.log(result)
-            callback(false, {code: 200, status:"ok", data: result})    
+            conn.release(); callback(false, {code: 200, status:"ok", data: result})    
         })
     })
 }
@@ -53,12 +53,12 @@ module.exports.getTreinos=function(idAtleta,callback,next){
        [idAtleta],function(err, results) {
            // VERY IMPORTANT: Always release a connection after you don't need it
            // You can make more then one query but in the last one release it
-
+           conn.release();
            if (err) {
                callback(err,{code: 500, status: "Error in a database query"})
                return;
            }        
-            callback(false, {code: 200, status:"ok", data: results})
+           callback(false, {code: 200, status:"ok", data: results})
         }) 
           
  })

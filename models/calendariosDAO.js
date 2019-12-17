@@ -36,7 +36,7 @@ module.exports.getAllCalendarios=function(callback,next){
                callback(err,{code: 500, status: "Error in a database query"})
                return;
            } 
-           callback(false, {code: 200, status:"ok", data: results})
+            callback(false, {code: 200, status:"ok", data: results})
        })
    })
  
