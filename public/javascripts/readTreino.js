@@ -10,6 +10,7 @@ var atletas;
 var atleta_nome;
 var natificaçao;
 var selecionar;
+var exercicios;
 
 //---------------------------------------
 
@@ -22,7 +23,7 @@ window.onload = function () {
     requisitar = document.getElementById("requisitar");
     selecionar = document.getElementById('select');
     atleta_nome = document.getElementById('atleta_nome');
-
+    exercicios = document.getElementById('exercicios');
 
     readAtletas();
     //readTreinos();
@@ -30,9 +31,40 @@ window.onload = function () {
     readComments();
     //loadMateriaisDisp() 
     readNotificaçoes();
+    readTreinoss()
+    readExercicios()
+}
+
+function readTreinoss() {
+    $.ajax({
+        url: '/api/treinos/',
+        method: 'get',
+        contentType: "application/json", // sending in json
+        dataType: "json",// receiving in json
+        success: function (res, status) {
+            treinar = res
+            var html = ""
+    
+            for (i in treinar) {
+                if (treinar[i].treino_estado == 'Por realizar')
+               
+                
+                html += "<p><a href='Treino.html'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "<a></p>";
+
+            }
+
+            treinos.innerHTML = html;
+
+        },
+        error: function () {
+
+        }
+    })
+
 }
 
 
+/*
 function readTreinos() {
     $.ajax({
         url: '/api/treinos/' + selecionar.value,
@@ -57,10 +89,11 @@ function readTreinos() {
     })
 
 }
+*/
 
 function readTreinosFeitos() {
     $.ajax({
-        url: '/api/treinos/'+ selecionar.value,
+        url: '/api/treinos/' + selecionar.value,
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -108,7 +141,7 @@ function readAtletas() {
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
         success: function (res, status) {
-           // var html = "";
+            // var html = "";
             var option = "";
             atletas = res;
             for (i in atletas) {
@@ -116,7 +149,7 @@ function readAtletas() {
                 option += "<option value='" + atletas[i].atleta_id + "'>"
                     + atletas[i].atleta_nome + "</option>"
             }
-           // atleta_nome.innerHTML = html;
+            // atleta_nome.innerHTML = html;
             selecionar.innerHTML = option;
         },
         error: function () {
@@ -180,7 +213,30 @@ function readNotificaçoes() {
 
 
 
+function readExercicios() {
+    $.ajax({
+        url: '/api/plan_treinos/',
+        method: 'get',
+        contentType: "application/json", // sending in json
+        dataType: "json",// receiving in json
+        success: function (res, status) {
+            exer = res
+            var html = ""
+            for (i in exer) {
+                if (exer[i].Plano_Treino_estd == 'Por realizar')
+                    html += "<li>" + exer[i].plan_treino_exer+ "<input id='exer' type='checkbox'  value='" + exer[i].plan_treino_id+ "' onclick='validarExercicio()' > </li>";
 
+            }
+
+            exercicios.innerHTML = html;
+
+        },
+        error: function () {
+
+        }
+    })
+
+}
 
 
 

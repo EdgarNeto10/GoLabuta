@@ -5,7 +5,7 @@ body{
   grid-template-areas:
   'header header header header '
   'nav nav nav nav'    
-  'void main main main '
+  'main main main main '
   'footer footer footer footer';/*Funcinamento: organização padrão da pagina, as repetições determina as colunas*/ 
   grid-template-columns: auto auto auto;
   font-size: 30px;
@@ -30,12 +30,15 @@ flex-direction: column;
 
 }
 
-a:link, a:visited{
+  nav a{
   color: rgb(51, 0, 0);
   padding: 3px;
   background-color:rgb(173, 80, 80);;
   text-decoration: none;
   font-size: 18px; 
+}
+a{
+  color: rgb(51, 0, 0);
 }
 
 a:hover{
@@ -106,6 +109,7 @@ textarea{
 
 h3{
   color:rgb(229, 231, 84);
+  margin-left: 40px;
 }
 
 #comentario{
@@ -140,4 +144,9 @@ img {
   .move {
     display: flex;
   
+  }
+
+  body main p{
+    background-color:  rgb(115, 177, 177);
+    color: rgb(43, 43, 43)
   }

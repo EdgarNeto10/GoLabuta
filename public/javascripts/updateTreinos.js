@@ -45,6 +45,50 @@ function updateTreinos() {
     })
 }
 
+
+
+
+function updateExer(){
+    $.ajax({
+        url: "/api/plan_treinos/" + document.getElementById("exer").value,
+        method: "put",
+        data: {
+            estado:realizado
+        },
+
+        success: function (res) {
+            readExercicios()
+        
+
+        },
+        error: function (err) {
+            console.log(err);
+        }
+
+
+    })
+}
+
+function validarExercicio() {
+    c = c + 1
+    var r = confirm("Realizou o exercicio?");
+    if (r == true) {
+        updateExer()
+        if (c == 1)
+            document.getElementById("submeter").innerHTML = "Realizou " + [c] + "Exercicio";
+        else
+
+            document.getElementById("submeter").innerHTML = "Realizou " + [c] + "Exercicios";
+    }
+    else if (r==false){
+        readExercicios()
+    }
+    
+}
+
+
+
+/*
 function updateTreinosReverse() {
     $.ajax({
         url: "/api/treinos/" + document.getElementById('treinar').value,
@@ -64,3 +108,5 @@ function updateTreinosReverse() {
 
     })
 }
+
+*/

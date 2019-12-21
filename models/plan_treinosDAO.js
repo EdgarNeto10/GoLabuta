@@ -2,13 +2,13 @@
 var pool = require('./MysqlConn').pool;
 
 
-module.exports.getAllTreinos=function(callback,next){
+module.exports.getAllexercicios=function(callback,next){
     pool.getConnection(function(err,conn){
        if (err) {
            callback(err,{code: 500, status: "Error in the connection to the database"})
            return;
        }
-       conn.query("select DATE_FORMAT(treino_data,'%d/%m/%Y') as date, treino_tipo,treino_id,treino_estado from treino ",
+       conn.query("select * from Plano_Treino",
        function(err, results) {
            // VERY IMPORTANT: Always release a connection after you don't need it
            // You can make more then one query but in the last one release it
@@ -26,15 +26,15 @@ module.exports.getAllTreinos=function(callback,next){
 
 
 
-module.exports.updateTreinos= function(idTreino,newestado,callback) {
+module.exports.updateExercicios= function(idPlan_trein,newestado,callback) {
     pool.getConnection(function(err,conn){
         if (err) {
             callback(err,{code: 500, status: "Error in the connection to the database"})
             return;
         }
-        console.log([newestado,idTreino])
-        conn.query("update treino set treino_estado = ? where treino_id = ?", 
-        [newestado,idTreino],
+        console.log([newestado,idPlan_trein])
+        conn.query("update Plano_Treino set Plano_Treino_estd = ? where plan_treino_id = ?", 
+        [newestado,idPlan_trein],
         function(err, result) {
             console.log(result)
             conn.release(); callback(false, {code: 200, status:"ok", data: result})    
@@ -42,7 +42,7 @@ module.exports.updateTreinos= function(idTreino,newestado,callback) {
     })
 }
 
-
+/*
 module.exports.getTreinos=function(idAtleta,callback,next){
     pool.getConnection(function(err,conn){
        if (err) {
@@ -64,7 +64,7 @@ module.exports.getTreinos=function(idAtleta,callback,next){
  })
 }
 
-
+*/
 /*
 module.exports.saveTreinos=function(treinosId, treino, callback){
     pool.getConnection(function(err,conn){
@@ -88,5 +88,3 @@ module.exports.saveTreinos=function(treinosId, treino, callback){
 
  
 */
-
-

@@ -105,7 +105,7 @@ function readCalendedario() {
             jogo=res
             var html=""
             for (i in jogo) {
-                html += "<p  onclick= style='background-color:lime'>" +jogo[i].cal_desp_data+' '+jogo[i].cal_desp_jogo+ " <input type='button' id='local' value='Localização' onclick='readMarker()'></p>";             
+                html += jogo[i].cal_desp_jornada+'<br>'+"<p onclick= style='background-color:lime'>"+jogo[i].cal_desp_data+' '+jogo[i].cal_desp_jogo+ " <input type='button' id='local' value='Localização' onclick='readMarker()'></p>";             
         
             }
             encontro.innerHTML = html;
