@@ -49,7 +49,7 @@ module.exports.getTreinos=function(idAtleta,callback,next){
            callback(err,{code: 500, status: "Error in the connection to the database"})
            return;
        }
-       conn.query("select treino_id,treino_tipo,treino_estado,treino_data,atleta_id,atleta_atle_trein from  treino t join Atle_Trein a on  t.treino_id = a.treino_atle_trein join Atleta x on a.atleta_atle_trein = x.atleta_id where atleta_atle_trein=? ",
+       conn.query("select treino_id,treino_tipo,treino_estado,DATE_FORMAT(treino_data,'%d/%m/%Y') as date,atleta_id,atleta_atle_trein from  treino t join Atle_Trein a on  t.treino_id = a.treino_atle_trein join Atleta x on a.atleta_atle_trein = x.atleta_id where atleta_atle_trein=? ",
        [idAtleta],function(err, results) {
            // VERY IMPORTANT: Always release a connection after you don't need it
            // You can make more then one query but in the last one release it

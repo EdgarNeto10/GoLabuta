@@ -83,7 +83,7 @@ footer {
 
 label{
   display: block;
-  color:rgb(43, 43, 43)
+  color:rgb(27, 26, 26)
 }
 
 textarea{
@@ -132,6 +132,7 @@ ul li img{
 
   
     body main p{
-      color: greenyellow;
+      background-color:  rgb(115, 177, 177);
+      color: rgb(43, 43, 43)
     }
 

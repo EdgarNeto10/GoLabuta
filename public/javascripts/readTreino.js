@@ -24,20 +24,39 @@ window.onload = function () {
     selecionar = document.getElementById('select');
     atleta_nome = document.getElementById('atleta_nome');
     exercicios = document.getElementById('exercicios');
+    exercicio = document.getElementById('exercicio');
 
-    readAtletas();
     //readTreinos();
     //readTreinosFeitos();
     readComments();
     //loadMateriaisDisp() 
     readNotificaçoes();
-    readTreinoss()
-    readExercicios()
+    readTreinos();
+    readExercicios();
+    readAtletas();
+    readExerRealizado()
+}
+    /*
+    //Neste caso a Key=Edgar e o value=Neto
+    window.sessionStorage.setItem('Edgar','Neto');
+    var sobrenome= sessionStorage.getItem('Edgar')
+    window.alert(sobrenome)
+ */ 
+ 
+//-----------------Session Storage--------------------//
+
+    
+function setIdTreino(Idtreino){
+    window.sessionStorage.setItem('Idtreino',Idtreino);
+    window.location.href='../Treino.html';
+
 }
 
-function readTreinoss() {
+//-------------------------------------------------------//
+
+function readTreinos() {
     $.ajax({
-        url: '/api/treinos/',
+        url: '/api/treinos/'+sessionStorage.getItem('atletaId'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -49,7 +68,7 @@ function readTreinoss() {
                 if (treinar[i].treino_estado == 'Por realizar')
                
                 
-                html += "<p><a href='Treino.html'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "<a></p>";
+                html += "<p onclick='setIdTreino("+treinar[i].treino_id+")' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";
 
             }
 
@@ -91,6 +110,7 @@ function readTreinos() {
 }
 */
 
+
 function readTreinosFeitos() {
     $.ajax({
         url: '/api/treinos/' + selecionar.value,
@@ -102,7 +122,7 @@ function readTreinosFeitos() {
             var html = "";
             for (i in treinar) {
                 if (treinar[i].treino_estado == 'Realizado')
-                    html += "<li>" + treinar[i].treino_tipo + "</li>";
+                    html += "<p onclick='setIdTreino("+treinar[i].treino_id+")' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";;
             }
             treinosfeitos.innerHTML = html;
         },
@@ -112,6 +132,7 @@ function readTreinosFeitos() {
     })
 
 }
+
 
 function readComments() {
     $.ajax({
@@ -134,31 +155,28 @@ function readComments() {
 }
 
 
-function readAtletas() {
+function readAtletas()  {
+  
     $.ajax({
-        url: '/api/atletas/',//
-        method: 'get',
-        contentType: "application/json", // sending in json
-        dataType: "json",// receiving in json
-        success: function (res, status) {
-            // var html = "";
-            var option = "";
-            atletas = res;
-            for (i in atletas) {
-                html = atletas[i].atleta_nome
-                option += "<option value='" + atletas[i].atleta_id + "'>"
-                    + atletas[i].atleta_nome + "</option>"
-            }
-            // atleta_nome.innerHTML = html;
-            selecionar.innerHTML = option;
-        },
-        error: function () {
+      url: '/api/atletas/',//
+      method: 'get',
+      contentType: "application/json", // sending in json
+      dataType: "json",// receiving in json
+      success: function (res, status) {
+          var option = "";
+          atletas = res;
+          for (i in atletas) {
+              option += "<option value='" + atletas[i].atleta_id + "'>"
+                  + atletas[i].atleta_nome + "</option>"
+          }
+          selecionar.innerHTML = option;
+      },
+      error: function () {
 
-        }
-    })
+      }
+  })
 
 }
-
 
 
 function loadMateriaisDisp() {
@@ -224,7 +242,7 @@ function readExercicios() {
             var html = ""
             for (i in exer) {
                 if (exer[i].Plano_Treino_estd == 'Por realizar')
-                    html += "<li>" + exer[i].plan_treino_exer+ "<input id='exer' type='checkbox'  value='" + exer[i].plan_treino_id+ "' onclick='validarExercicio()' > </li>";
+                    html += "<li>" + exer[i].plan_treino_exer+ "<input  type='checkbox'  onclick='validarExercicio("+exer[i].plan_treino_id+")' > </li>";
 
             }
 
@@ -238,6 +256,33 @@ function readExercicios() {
 
 }
 
+function readExerRealizado() {
+    $.ajax({
+        url: '/api/plan_treinos/',
+        method: 'get',
+        contentType: "application/json", // sending in json
+        dataType: "json",// receiving in json
+        success: function (res, status) {
+            exer = res
+            var html = ""
+            for (i in exer) {
+                if (exer[i].Plano_Treino_estd == 'Realizado')
+                    html += "<li>" + exer[i].plan_treino_exer+ "</li>";
 
+            }
+
+            exercicio.innerHTML = html;
+
+        },
+        error: function () {
+
+        }
+    })
+
+}
+
+
+
+  
 
 
