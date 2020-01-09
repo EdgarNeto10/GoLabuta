@@ -6,7 +6,18 @@ var feedbacksDAO = require("../models/feedbacksDAO");
 
 router.get('/', function (req, res, next) {
 
-  feedbacksDAO.getFeedbacks(function (err,result) {
+  feedbacksDAO.getAllFeedbacks(function (err,result) {
+    if (err) {
+      res.status(result.code).json(err);
+      return;
+    }
+    res.status(result.code).send(result.data);
+  }, next)
+})
+
+router.get('/:idAtleta', function (req, res, next) {
+
+  feedbacksDAO.getFeedbacks(req.params.idAtleta,function (err,result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -24,7 +35,7 @@ router.post('/', function (req, res, next) {
   console.log(data);
   //o parametro data.addData está ligado ao coment
   // A inserir os dados 
-  feedbacksDAO.saveFeedbacks( data.feedback,
+  feedbacksDAO.saveFeedbacks( data.feedback,data.atleta,
     function (err,result) {
       res.send(result);
     })

@@ -2,12 +2,17 @@ c=0;
 //-------------------------------------------------------------
 function addComment() {
     var comment = document.getElementById("comentario").value
+    var treino = sessionStorage.getItem('Idtreino')
    
+
+    
     $.ajax({
         url: "/api/comentarios/",
         method: "post",
         data: {
-            comment: comment
+            comment: comment,
+            treino: treino
+
         },
         success : function(res,status) {
             c=c+1
@@ -25,12 +30,13 @@ function addComment() {
 
 function addFeedBack(){
     var feedback = document.getElementById('feedback').value
-   
+    var  atleta = document.getElementById('select').value;
    $.ajax({
        url:"/api/feedBacks",
        method:"post",
        data:{
-           feedback:feedback
+           feedback:feedback,
+           atleta:atleta
        },
        success : function(res,status) {
            if (res.status == "ok"){

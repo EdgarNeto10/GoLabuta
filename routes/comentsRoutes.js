@@ -6,7 +6,18 @@ var comentariosDAO = require("../models/comentariosDAO");
 
 router.get('/', function (req, res, next) {
 
-  comentariosDAO.getComments(function (err,result) {
+  comentariosDAO.getAllComments(function (err,result) {
+    if (err) {
+      res.status(result.code).json(err);
+      return;
+    }
+    res.status(result.code).send(result.data);
+  }, next)
+})
+
+router.get('/:idTreino', function (req, res, next) {
+
+  comentariosDAO.getComments(req.params.idTreino,function (err,result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -24,7 +35,7 @@ router.post('/', function (req, res, next) {
   console.log(data);
   //o parametro data.addData está ligado ao coment
   // A inserir os dados 
-   comentariosDAO.saveComments( data.comment,
+   comentariosDAO.saveComments( data.comment,data.treino,
     function (err,result) {
       res.send(result);
     })

@@ -28,13 +28,14 @@ window.onload = function () {
 
     //readTreinos();
     //readTreinosFeitos();
-    readComments();
+    //readComments();
     //loadMateriaisDisp() 
     readNotificaçoes();
     readTreinos();
     readExercicios();
     readAtletas();
-    readExerRealizado()
+    readExerRealizado();
+    readComments();
 }
     /*
     //Neste caso a Key=Edgar e o value=Neto
@@ -52,6 +53,14 @@ function setIdTreino(Idtreino){
 
 }
 
+function setIdTreinofeito(IdtreinoFeito){
+        window.sessionStorage.setItem('IdtreinoFeito',IdtreinoFeito);
+        window.location.href='../treino realizado.html';
+}
+
+
+
+
 //-------------------------------------------------------//
 
 function readTreinos() {
@@ -68,7 +77,7 @@ function readTreinos() {
                 if (treinar[i].treino_estado == 'Por realizar')
                
                 
-                html += "<p onclick='setIdTreino("+treinar[i].treino_id+")' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";
+                html += "<p onclick='setIdTreino("+treinar[i].treino_id+");' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";
 
             }
 
@@ -122,7 +131,7 @@ function readTreinosFeitos() {
             var html = "";
             for (i in treinar) {
                 if (treinar[i].treino_estado == 'Realizado')
-                    html += "<p onclick='setIdTreino("+treinar[i].treino_id+")' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";;
+                    html += "<p onclick= setIdTreinofeito("+treinar[i].treino_id+"); style='cursor:pointer'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>"
             }
             treinosfeitos.innerHTML = html;
         },
@@ -134,7 +143,8 @@ function readTreinosFeitos() {
 }
 
 
-function readComments() {
+
+function readAllComments() {
     $.ajax({
         url: '/api/comentarios/',
         method: 'get',
@@ -144,6 +154,8 @@ function readComments() {
             var html = "";
             for (i in res) {
                 html += "<li>" + res[i].coment + "</li>";
+               
+                
             }
             comentario.innerHTML = html;
         },
@@ -154,6 +166,27 @@ function readComments() {
 
 }
 
+function readComments() {
+    $.ajax({
+        url: '/api/comentarios/'+sessionStorage.getItem('IdtreinoFeito'),
+        method: 'get',
+        contentType: "application/json", // sending in json
+        dataType: "json",// receiving in json
+        success: function (res, status) {
+            var html = "";
+            for (i in res) {
+                html += "<li>" + res[i].coment + "</li>";
+               
+                
+            }
+            comentario.innerHTML = html;
+        },
+        error: function () {
+
+        }
+    })
+
+}
 
 function readAtletas()  {
   
@@ -207,7 +240,7 @@ function loadMateriaisDisp() {
 
 function readNotificaçoes() {
     $.ajax({
-        url: '/api/feedBacks/',
+        url: '/api/feedBacks/'+sessionStorage.getItem('atletaId'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json

@@ -16,6 +16,7 @@ var atletasRouter = require('./routes/atletasRoutes');
 var calendariosRouter = require('./routes/calendariosRoutes'); 
 var feedbacksRouter = require('./routes/feedbacksRoutes'); 
 var plan_treinosRouter = require('./routes/plan_treinosRoutes'); 
+var staffRouter = require('./routes/staffRoutes'); 
 
 
 /*
@@ -50,6 +51,7 @@ app.use('/api/atletas/', atletasRouter);
 app.use('/api/calendarios/', calendariosRouter);
 app.use('/api/feedBacks/', feedbacksRouter);
 app.use('/api/plan_treinos/', plan_treinosRouter);
+app.use('/api/staff/', staffRouter);
 
 
 // catch 404 and forward to error handler
