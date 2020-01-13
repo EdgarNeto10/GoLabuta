@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var con= require('./models/MysqlConn')
+//var con= require('./models/MysqlConn')
 var app = express();
 
 var indexRouter = require('./routes/index');
@@ -17,7 +17,7 @@ var calendariosRouter = require('./routes/calendariosRoutes');
 var feedbacksRouter = require('./routes/feedbacksRoutes'); 
 var plan_treinosRouter = require('./routes/plan_treinosRoutes'); 
 var staffRouter = require('./routes/staffRoutes'); 
-
+var eq_epocas = require('./routes/equipa_epocaRoutes'); 
 
 /*
 app.use(function(req, res , next){
@@ -52,6 +52,7 @@ app.use('/api/calendarios/', calendariosRouter);
 app.use('/api/feedBacks/', feedbacksRouter);
 app.use('/api/plan_treinos/', plan_treinosRouter);
 app.use('/api/staff/', staffRouter);
+app.use('/api/equipas/epocas/', eq_epocas);
 
 
 // catch 404 and forward to error handler

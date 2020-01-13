@@ -28,5 +28,19 @@ router.get('/', function (req, res, next) {
       res.status(result.code).send(result.data);
     }, next)
   })
+
+
+  router.post('/', function (req, res, next) {
+    var data = req.body;
+  
+    console.log(data);
+
+    calendariosDAO.saveCalendarios( data.jornada,data.encontro,data.data_encontro,data.local_encontro,data.lat,data.lng,
+      function (err,result) {
+        res.send(result);
+      })
+  
+  });
+
   
   module.exports = router; 

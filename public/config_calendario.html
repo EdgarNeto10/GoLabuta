@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascripts/calendario.js"> </script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style homepage.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>GoLabuta</title>
+</head>
+
+<body>
+    <header>
+        <h1> GoLabuta</h1>
+    </header>
+    <nav>
+        <ul>
+            <img class='img' src="./images/gestor.png">
+            <li><a href="./Home-page gestor.html">Home</a></li>
+            <li><a href="./config_calendario.html">Configurar calendário</a></li>
+            <li><a href="Stock de materiais.html">Stock de materiais</a></li>
+            <!--<li><a href="./Materiais requisitados.html">Materias requisitados</a></li>-->
+            <li><a href="./calendario gestor.html">Calendário Desportivo</a></li>
+            <li><a href="./index.html">Log out</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <header>
+                <h3>Configurar calendário</h3>
+            </header>
+
+            <section class="config">
+                <p>Jornada:<input type="text" id="jornada" placeholder="Jornada X"></p>
+                <p>Encontro: <input type="text" id="encontro" placeholder="Equipa X VS Equipa Y"></p>
+                <p>Data do encontro: <input type="date" id="data" ></p>
+                <p>Local do encontro: <input type="text" id="local" placeholder="Localização"></p>
+                <input type="button" value='Confifurar' onclick="pesquisa();">
+                <p id='addJ' style=color:aquamarine ></p>       
+            </section>
+    
+        </main>
+ 
+
+
+
+
+    <footer>
+        <p>Email: DENDKWEMD@GMAIL.COM</p>
+    </footer>
+</body>
+
+
+
+</html>
