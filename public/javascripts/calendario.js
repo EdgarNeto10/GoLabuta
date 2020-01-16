@@ -7,9 +7,10 @@ var local;
 var c;
 var marker;
 var circle;
-//--------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------\\
+
+//--------------------------------------------------------------------------\\
 
 //Display map
 
@@ -203,7 +204,7 @@ function readHistoricoGolos() {
                 //A adicionar os pontos das equipas adversarias
 
                 marker = L.marker([chegada[i].ep_lat, chegada[i].ep_long]).addTo(mymap);
-                marker.bindPopup(chegada[i].ep_local+'<br>'+chegada[i].ep_resultado+'<br>'+'Foram marcados '+chegada[i].ep_Ngolos+' golos neste campo' );//Nome da equipa
+                marker.bindPopup(chegada[i].ep_local + '<br>' + chegada[i].ep_resultado + '<br>' + 'Foram marcados ' + chegada[i].ep_Ngolos + ' golos neste campo');//Nome da equipa
 
                 /*
                A adicionar o raio ao mapa, o raio aumenta dependendo do numero 
@@ -213,9 +214,9 @@ function readHistoricoGolos() {
                     color: 'red',
                     fillColor: '#f07',
                     fillOpacity: 0.5,
-                    radius:chegada[i].ep_Ngolos*200
+                    radius: chegada[i].ep_Ngolos * 200
                 }).addTo(mymap);
-                
+
 
 
                 // A adcionar o ponto de partida da equipa
