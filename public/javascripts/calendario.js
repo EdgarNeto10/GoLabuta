@@ -239,7 +239,7 @@ function readHistoricoGolos() {
 
 
 function readMarker() {
-    //window.location.reload();
+    
     $.ajax({
 
         url: '/api/calendarios/' + localStorage.getItem('IdCalendario'),
@@ -267,7 +267,6 @@ function readMarker() {
 
         }
     })
-
 
 }
 
