@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 11-Jan-2020 às 09:57
+-- Generation Time: 25-Jan-2020 às 01:00
 -- Versão do servidor: 8.0.13-4
--- versão do PHP: 7.2.24-0ubuntu0.18.04.1
+-- versão do PHP: 7.2.24-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -90,17 +90,16 @@ CREATE TABLE `cal_desportivo` (
   `cal_desp_jogo` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `cal_desp_jornada` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cal_desportivo_lat` double DEFAULT NULL,
-  `cal_desportivo_long` double DEFAULT NULL,
-  `cal_desportivo_geom` geometry DEFAULT NULL
+  `cal_desportivo_long` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `cal_desportivo`
 --
 
-INSERT INTO `cal_desportivo` (`cal_desp_id`, `cal_desp_local`, `cal_desp_data`, `cal_desp_jogo`, `cal_desp_jornada`, `cal_desportivo_lat`, `cal_desportivo_long`, `cal_desportivo_geom`) VALUES
-(1, 'Estádio José Alvalade', '2020-01-10', 'Sporting vs Benfica', 'Jornada 1', 38.762817, -9.1586173, NULL),
-(3, 'Estádio do Dragão', '2020-01-10', 'Porto vs Benfica', 'Jornada 2', 41.161758, -8.583933, NULL);
+INSERT INTO `cal_desportivo` (`cal_desp_id`, `cal_desp_local`, `cal_desp_data`, `cal_desp_jogo`, `cal_desp_jornada`, `cal_desportivo_lat`, `cal_desportivo_long`) VALUES
+(12, 'Estádio José Alvalade', '2020-01-23', 'Sporting VS Benfica', 'Jornada 1', 38.76125745, -9.160795109759835),
+(13, 'Estádio do Dragão', '2020-01-31', 'Porto VS Benfica', 'Jornada 2', 41.1617848, -8.584780600645765);
 
 -- --------------------------------------------------------
 
@@ -121,7 +120,8 @@ CREATE TABLE `comentario` (
 
 INSERT INTO `comentario` (`id`, `coment_date`, `coment`, `treino`) VALUES
 (74, NULL, 'ded', 6),
-(75, NULL, 'kmm', 2);
+(75, NULL, 'kmm', 2),
+(76, NULL, 'ok', 5);
 
 -- --------------------------------------------------------
 
@@ -138,21 +138,52 @@ CREATE TABLE `coment_treino` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `epoca`
+--
+
+CREATE TABLE `epoca` (
+  `epoca_id` int(11) NOT NULL,
+  `ep_encontro` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ep_resultado` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ep_Ngolos` int(3) NOT NULL,
+  `ep_local` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ep_lat` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ep_long` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `epoca`
+--
+
+INSERT INTO `epoca` (`epoca_id`, `ep_encontro`, `ep_resultado`, `ep_Ngolos`, `ep_local`, `ep_lat`, `ep_long`) VALUES
+(1, ' Benfica - Rio Ave	', ' Benfica 1-0 Rio Ave	', 1, 'Estádio dos Arcos', '38.76125745', '-9.160795109759835'),
+(2, 'Benfica - FC Porto', 'Benfica 2-4 FC Porto', 6, 'Estádio do Dragão', '41.1617848', '-8.584780600645765'),
+(3, 'Benfica - Paços de Ferreira	', 'Benfica 0-0 Paços de Ferreira', 0, 'Estádio da Mata Real', '41.270668650000005', '-8.384296000022818'),
+(4, 'Benfica - Sporting', 'Benfica 1-3 Sporting', 4, 'Estádio José Alvalade', '38.76125745', '-9.160795109759835'),
+(5, 'Benfica - Belenenses ', 'Benfica 2-0 Belenenses ', 2, 'Estádio do Restelo', '38.70240095', '-9.20789132358843'),
+(7, 'Benfica - Porto', 'Benfica 3-0 Porto', 3, 'Estádio do Dragão', '41.1617848', '-8.584780600645765'),
+(8, 'Benfica - Sporting', 'Benfica 4 - 4 Sporting', 8, 'Estádio José Alvalade', '38.76125745', '-9.160795109759835'),
+(10, 'Benfica - Vitória Clube de Lisboa', 'Benfica 4-0Vitória Clube de Lisboa', 4, 'Vitória Clube de Lisboa', '38.73477705', '-9.120023928679682');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `Equipa`
 --
 
 CREATE TABLE `Equipa` (
   `equipa_nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `equipa_lat` double NOT NULL,
-  `equipa_long` double NOT NULL
+  `equipa_long` double NOT NULL,
+  `equipa_local` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `Equipa`
 --
 
-INSERT INTO `Equipa` (`equipa_nome`, `equipa_lat`, `equipa_long`) VALUES
-('Equipa 1', 38.75160366, -9.1841409301);
+INSERT INTO `Equipa` (`equipa_nome`, `equipa_lat`, `equipa_long`, `equipa_local`) VALUES
+('Equipa 1', 38.75160366, -9.1841409301, 'Estádio Sport Lisboa e Benfica');
 
 -- --------------------------------------------------------
 
@@ -381,6 +412,12 @@ ALTER TABLE `coment_treino`
   ADD KEY `staff_fk_coment_treino` (`staff_coment_treino`);
 
 --
+-- Indexes for table `epoca`
+--
+ALTER TABLE `epoca`
+  ADD PRIMARY KEY (`epoca_id`);
+
+--
 -- Indexes for table `Equipa`
 --
 ALTER TABLE `Equipa`
@@ -465,13 +502,19 @@ ALTER TABLE `Atle_Trein`
 -- AUTO_INCREMENT for table `cal_desportivo`
 --
 ALTER TABLE `cal_desportivo`
-  MODIFY `cal_desp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cal_desp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `epoca`
+--
+ALTER TABLE `epoca`
+  MODIFY `epoca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `Feedback`
