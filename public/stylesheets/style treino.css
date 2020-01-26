@@ -4,29 +4,36 @@ body{
   grid-gap:10px; /*Abre um intervalo entre as colunas*/
   grid-template-areas:
   'header header header header '
-  'nav nav nav nav'    
-  'void main main main '
+  'nav nav nav nav'
+  'main main main main '
   'footer footer footer footer';/*Funcinamento: organização padrão da pagina, as repetições determina as colunas*/ 
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto ;
   font-size: 30px;
   color:rgb(253, 253, 253);
   background-color:rgb(143, 132, 112);
+  background-image: url("../images/fundoGo.jpg");
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  
 }
+
 
 header{
   grid-area: header;
 }
 
+
 nav{
   grid-area: nav;
-  background-color: rgb(115, 177, 177);
+  background-color: rgba(113, 228, 228, 0.555);
+  
 }
+
 
 main{
 grid-area: main;/*Diz ao sistema o local da pagina que determinado elemento deve ser colocado */ 
 width: auto;
 flex-direction: column;
+margin-left: 150px;
 
 }
 
@@ -52,11 +59,16 @@ a:hover{
 }
 
 body>header {
-  background-color: rgb(52, 82, 82);
+  background-color: rgb(10,23,55,0.5);
   color:rgb(173, 80, 80);
   font-size:30px;
+  background-image: url("../images/Go.jpg");
+  background-position: right;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-size: 300px 160px;
+ 
 }
-
 
 h2 {
   text-align:start;
@@ -71,15 +83,13 @@ nav ul li{
   list-style: none;
 }
 
-
 footer {
   grid-area:footer;
-  background-color: rgb(52, 82, 82);
+   background-color: rgba(113, 228, 228, 0.555);
   margin:100px 0px 0px 0px;
-  
+  text-align: center;
 
 }
-
  section ul li{
    grid-area: aside;
   list-style:none;
@@ -105,7 +115,7 @@ textarea{
 }
 
 h3{
-  color:rgb(229, 231, 84);
+  color: rgb(181, 242, 247);
 }
 
 #comentario{
@@ -117,14 +127,10 @@ h3{
   height: 300px; 
 }
 
-.treinos{
-  color:rgb(43, 43, 43);
-}
 
 
-li{
-  color:rgb(43, 43, 43);
-}
+
+
 
 body main p{
   color: greenyellow;

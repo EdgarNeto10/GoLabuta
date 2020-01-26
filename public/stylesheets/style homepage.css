@@ -11,6 +11,7 @@ body{
   font-size: 30px;
   color:rgb(253, 253, 253);
   background-color:rgb(143, 132, 112);
+  background-image: url("../images/fundoGo.jpg");
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
   
 
@@ -23,7 +24,7 @@ header{
 
 nav{
   grid-area: nav;
-  background-color: rgb(115, 177, 177);
+  background-color: rgba(113, 228, 228, 0.555);
   
 }
 
@@ -61,10 +62,11 @@ a:hover{
 }
 
 body>header {
-  background-color: rgb(52, 82, 82);
+  background-color: rgb(10,23,55,0.5);
   color:rgb(173, 80, 80);
   font-size:30px;
   background-image: url("../images/Go.jpg");
+  background-position: right;
   background-size: auto;
   background-repeat: no-repeat;
   background-size: 300px 160px;
@@ -78,8 +80,9 @@ h2 {
 
 footer {
   grid-area:footer;
-  background-color: rgb(52, 82, 82);
+   background-color: rgba(113, 228, 228, 0.555);
   margin:100px 0px 0px 0px;
+  text-align: center;
 
 }
 
@@ -91,7 +94,7 @@ footer {
 
 label{
   display: block;
-  color:rgb(43, 43, 43);
+  color: rgb(181, 242, 247);
   margin-left: 10%;
 }
 
@@ -121,7 +124,7 @@ ul li img{
  }
 
  h3{
-  color:rgb(229, 231, 84);
+  color:rgba(247, 112, 112, 0.589);
   margin-left: 5%;
  }
  
@@ -144,6 +147,7 @@ ul li img{
   border-radius: 50%;
   height:40px ;
   margin-right: 20px;
+ text-align: end ;
 
   }
 
@@ -161,5 +165,4 @@ ul li img{
   .config{
     margin-left: 80px;
   }
-
 

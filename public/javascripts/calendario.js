@@ -38,7 +38,7 @@ window.onload = function () {
     local = document.getElementById('local');
     //readAllMarker()
     //readHistoricoRotas();
-    readHistoricoGolos();
+    //readHistoricoGolos();
 }
 
 function readAllMarker() {
@@ -72,7 +72,7 @@ function readAllMarker() {
 // Função para pegar o histórico  de rotas nas epoca passadas
 
 function readHistoricoRotas() {
-
+    
     $.ajax({
         url: '/api/equipas/epocas',
         method: 'get',
@@ -83,7 +83,7 @@ function readHistoricoRotas() {
             partida = res
             var ref = [{ local: '' }] //Array que vai guardar os locais da equipas adversarias
 
-
+           
 
 
             for (i in chegada) {
@@ -180,9 +180,20 @@ function readHistoricoRotas() {
 
 }
 
+   
+
+
 // Função para pegar o histórico  de golos nas epoca passadas
+function clear(){
+    mymap.removeLayer(marker)
+}
 
 function readHistoricoGolos() {
+
+   
+    //mymap.removeLayer(marker);
+
+   
 
     $.ajax({
         url: '/api/equipas/epocas',
@@ -190,6 +201,7 @@ function readHistoricoGolos() {
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
         success: function (res, status) {
+          
             chegada = res
             partida = res
             //var ref = [{ local: '' }] //Array que vai guardar os locais da equipas adversarias

@@ -11,6 +11,7 @@ var atleta_nome;
 var natificaçao;
 var selecionar;
 var exercicios;
+var nome;
 
 //---------------------------------------
 
@@ -25,6 +26,7 @@ window.onload = function () {
     atleta_nome = document.getElementById('atleta_nome');
     exercicios = document.getElementById('exercicios');
     exercicio = document.getElementById('exercicio');
+    nome = document.getElementById('nome');
 
     //readTreinos();
     //readTreinosFeitos();
@@ -72,17 +74,17 @@ function readTreinos() {
         success: function (res, status) {
             treinar = res
             var html = ""
-    
+           
             for (i in treinar) {
                 if (treinar[i].treino_estado == 'Por realizar')
                
                 
                 html += "<p onclick='setIdTreino("+treinar[i].treino_id+");' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";
-
+                str  += treinar[i].atleta_nome
             }
 
             treinos.innerHTML = html;
-
+         
         },
         error: function () {
 
