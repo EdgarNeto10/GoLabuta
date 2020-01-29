@@ -1,3 +1,4 @@
+// Variaveis globais
 var str;
 var c;
 var realizado = 'Realizado'
@@ -5,8 +6,9 @@ var PorRealizar = 'Por realizar'
 var n;
 //-------------------------------------------------------------
 
+// Functions
 
-
+// Esta função  serve para fazer o update de um determinado treino para 'Realizado'.
 
 function updateTreinos() {
     $.ajax({
@@ -26,6 +28,8 @@ function updateTreinos() {
 
     })
 }
+
+// Esta função serve para validar se um treino foi realizado'.
 
 function validarTreino() {
     c = c + 1
@@ -48,6 +52,8 @@ function validarTreino() {
 
 
 
+// Esta função que serve para fazer o update de um determinado exercício para 'Realizado'.
+
 function updateExer() {
     $.ajax({
         url: "/api/plan_treinos/"+localStorage.getItem('idExer'),
@@ -66,6 +72,9 @@ function updateExer() {
 
     })
 }
+
+
+// Esta função serve para validar se um exercicio foi realizado'.
 
 function validarExercicio(exerpos) {
     c = c + 1
@@ -89,25 +98,3 @@ function validarExercicio(exerpos) {
 
 
 
-/*
-function updateTreinosReverse() {
-    $.ajax({
-        url: "/api/treinos/" + document.getElementById('treinar').value,
-        method: "put",
-        data: {
-            estado: PorRealizar
-        },
-
-        success: function (res) {
-            readTreinos()
-
-        },
-        error: function (err) {
-            console.log(err);
-        }
-
-
-    })
-}
-
-*/

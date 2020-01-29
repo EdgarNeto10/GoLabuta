@@ -1,13 +1,20 @@
 
+// Variaveis globais
 var materiais;
+//-------------------------------------------------------------
+//-------------------------------------------------------------
+
+
+
 
 window.onload = function () {
    materiais= document.getElementById("materiais");  
    readAllMateriais();
    
 
+// Functions
 
-
+// Esta função pega todos  os materiais disponieis para o treino
 
 function readAllMateriais() {
     $.ajax({     

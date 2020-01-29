@@ -13,7 +13,10 @@ window.onload = function () {
 }
 
   
-  
+//  Functions
+
+// Esta função pega os dados de todos atletas e insere os seus nomes em um select.  
+
   function readAtletasindex() {
   
     $.ajax({
@@ -36,6 +39,9 @@ window.onload = function () {
   })
 
 }
+
+
+// Esta função pega os dados de todos membros da staff e insere os seus nomes em um select.  
 
 function readStaffindex() {
   
@@ -62,10 +68,13 @@ function readStaffindex() {
 
 //--------------Session Storage------------//
 
+
+// Esta função guarda o id do atleta no session storage da pagina.
 function setIdAtleta(){
   window.sessionStorage.setItem('atletaId', selecionar_A.value)
 }
 
+// Esta função guarda o id da staff no session storage da pagina.
 function setIdStaff(){
   window.sessionStorage.setItem('staffId', selecionar_S.value)
 }

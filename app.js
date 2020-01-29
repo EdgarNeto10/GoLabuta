@@ -19,14 +19,6 @@ var plan_treinosRouter = require('./routes/plan_treinosRoutes');
 var staffRouter = require('./routes/staffRoutes'); 
 var eq_epocas = require('./routes/equipa_epocaRoutes'); 
 
-/*
-app.use(function(req, res , next){
-req.con=con;
-next();
-
-})
-*/
-
 
 
 // view engine setup

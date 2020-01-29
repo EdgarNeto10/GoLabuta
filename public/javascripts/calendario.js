@@ -30,16 +30,17 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}{r}.png', {
 
 //-------------------------------------------------------------------------
 
-//Functions
+// Functions
+
+/* Read functions */
 
 window.onload = function () {
     readCalendedario();
     encontro = document.getElementById('encontro');
     local = document.getElementById('local');
-    //readAllMarker()
-    //readHistoricoRotas();
-    //readHistoricoGolos();
 }
+
+// Função para testes de markers
 
 function readAllMarker() {
 
@@ -69,10 +70,10 @@ function readAllMarker() {
 }
 
 
-// Função para pegar o histórico  de rotas nas epoca passadas
+// Esta função serve para pegar o histórico  de rotas que equipa fez nas epócas passadas
 
 function readHistoricoRotas() {
-    
+
     $.ajax({
         url: '/api/equipas/epocas',
         method: 'get',
@@ -83,8 +84,9 @@ function readHistoricoRotas() {
             partida = res
             var ref = [{ local: '' }] //Array que vai guardar os locais da equipas adversarias
 
-           
 
+
+            // A percorrer a lista da equipas adversarias.
 
             for (i in chegada) {
 
@@ -180,20 +182,21 @@ function readHistoricoRotas() {
 
 }
 
-   
 
 
-// Função para pegar o histórico  de golos nas epoca passadas
-function clear(){
+
+
+function clear() {
     mymap.removeLayer(marker)
 }
 
+
+// Esta função serve para pegar o histórico  de golos nas epoca passadas
+
 function readHistoricoGolos() {
 
-   
-    //mymap.removeLayer(marker);
 
-   
+    //mymap.removeLayer(marker);
 
     $.ajax({
         url: '/api/equipas/epocas',
@@ -201,14 +204,11 @@ function readHistoricoGolos() {
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
         success: function (res, status) {
-          
+
             chegada = res
             partida = res
-            //var ref = [{ local: '' }] //Array que vai guardar os locais da equipas adversarias
 
-
-
-
+            // A percorrer a lista da equipas adversarias.
             for (i in chegada) {
 
 
@@ -249,9 +249,13 @@ function readHistoricoGolos() {
 }
 
 
+/*
+ Esta função permite pegar as informações de um calendário desportivo relacionado 
+ a equipa e dar a rota  para os encontros.
+*/
 
 function readMarker() {
-    
+
     $.ajax({
 
         url: '/api/equipas/calendarios/' + localStorage.getItem('IdCalendario'),
@@ -283,11 +287,18 @@ function readMarker() {
 }
 
 
+// Esta função guarda o id do calendário  no local storage da pagina.
 
 function setIdCalendario(IdCalendario) {
     window.localStorage.setItem('IdCalendario', IdCalendario);
 
 }
+
+
+/*
+Esta função vai pegar as informações de um calendário desportivo relacionado 
+a equipa e mostrar as datas e os encontros que a equipa irá realizar.
+*/
 
 function readCalendedario() {
     $.ajax({
@@ -315,9 +326,12 @@ function readCalendedario() {
 
 }
 
-//-----------Post
+/* Post functions */
 
 var loc;
+
+
+// Esta função permite efetuar geocoding(Latitude e Longitude) de um local de encontro.
 
 function pesquisa() {
 
@@ -337,6 +351,7 @@ function pesquisa() {
     })
 }
 
+// Esta função permite efetuar geocoding(Latitude e Longitude) de um local de encontro.
 
 function addCalendario() {
     var jornada = document.getElementById("jornada").value;
@@ -360,6 +375,9 @@ function addCalendario() {
         }
     })
 }
+
+
+// Esta função permite ao utilizador validar a jornada que configurou para o calendário desportivo.
 
 var j = 0;
 function validarCofigurar() {

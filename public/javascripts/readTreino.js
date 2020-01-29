@@ -28,10 +28,6 @@ window.onload = function () {
     exercicio = document.getElementById('exercicio');
     nome = document.getElementById('nome');
 
-    //readTreinos();
-    //readTreinosFeitos();
-    //readComments();
-    //loadMateriaisDisp() 
     readNotificaçoes();
     readTreinos();
     readExercicios();
@@ -39,31 +35,29 @@ window.onload = function () {
     readExerRealizado();
     readComments();
 }
-    /*
-    //Neste caso a Key=Edgar e o value=Neto
-    window.sessionStorage.setItem('Edgar','Neto');
-    var sobrenome= sessionStorage.getItem('Edgar')
-    window.alert(sobrenome)
- */ 
- 
+  
 //-----------------Session Storage--------------------//
 
-    
+
+// Esta função guarda o id de um treino 'por reaizar' no session storage da pagina.
+
 function setIdTreino(Idtreino){
     window.sessionStorage.setItem('Idtreino',Idtreino);
     window.location.href='../Treino.html';
 
 }
 
+// Esta função guarda o id de um treino 'realizado' no session storage da pagina.
+
 function setIdTreinofeito(IdtreinoFeito){
         window.sessionStorage.setItem('IdtreinoFeito',IdtreinoFeito);
         window.location.href='../treino realizado.html';
 }
 
-
-
-
 //-------------------------------------------------------//
+
+
+// Esta função serve para pegar todos os treinos 'por realizar' de um atleta e apresentar na pagina. 
 
 function readTreinos() {
     $.ajax({
@@ -94,33 +88,7 @@ function readTreinos() {
 }
 
 
-/*
-function readTreinos() {
-    $.ajax({
-        url: '/api/treinos/' + selecionar.value,
-        method: 'get',
-        contentType: "application/json", // sending in json
-        dataType: "json",// receiving in json
-        success: function (res, status) {
-            treinar = res
-            var html = ""
-            for (i in treinar) {
-                if (treinar[i].treino_estado == 'Por realizar')
-                    html += "<li>" + treinar[i].treino_tipo + "<input id='treinar' type='checkbox'  value='" + treinar[i].treino_id + "' onclick='updateTreinos()' > </li>";
-
-            }
-
-            treinos.innerHTML = html;
-
-        },
-        error: function () {
-
-        }
-    })
-
-}
-*/
-
+// Esta função serve para pegar todos os treinos  'Realizados' de um atleta selecionado e apresentar na pagina. 
 
 function readTreinosFeitos() {
     $.ajax({
@@ -145,6 +113,7 @@ function readTreinosFeitos() {
 }
 
 
+// Função de testes que pega todos os comentarios.
 
 function readAllComments() {
     $.ajax({
@@ -168,6 +137,8 @@ function readAllComments() {
 
 }
 
+// Função  serve para pegar todos os comentarios feitos em um treino e mostra na pagina.
+
 function readComments() {
     $.ajax({
         url: '/api/treinos/comentarios/'+sessionStorage.getItem('IdtreinoFeito'),
@@ -189,6 +160,11 @@ function readComments() {
     })
 
 }
+
+/* 
+Esta função pega os dados de todos atletas e insere os seus nomes em um select 
+para um membro da staff selecionar.  
+*/
 
 function readAtletas()  {
   
@@ -213,6 +189,8 @@ function readAtletas()  {
 
 }
 
+
+// Função serve para pegar todos os matreriais disponiveis e mostra na pagina.
 
 function loadMateriaisDisp() {
     $.ajax({
@@ -239,6 +217,7 @@ function loadMateriaisDisp() {
 
 }
 
+// Função serve para pegar todos os feedbacks realizados para um determinado atleta.
 
 function readNotificaçoes() {
     $.ajax({
@@ -265,6 +244,7 @@ function readNotificaçoes() {
 }
 
 
+// Esta função serve para pegar todos os exercícios 'Por realizar' e mostra na pagina.
 
 function readExercicios() {
     $.ajax({
@@ -290,6 +270,9 @@ function readExercicios() {
     })
 
 }
+
+
+// Esta função serve para pegar todos os exercícios 'Realizados' e mostra na pagina.
 
 function readExerRealizado() {
     $.ajax({
