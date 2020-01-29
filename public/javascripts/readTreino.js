@@ -47,7 +47,7 @@ function setIdTreino(Idtreino){
 
 }
 
-// Esta função guarda o id de um treino 'realizado' no session storage da pagina.
+// Esta função guarda o id de um treino 'realizado' no session storage das paginas.
 
 function setIdTreinofeito(IdtreinoFeito){
         window.sessionStorage.setItem('IdtreinoFeito',IdtreinoFeito);
@@ -57,7 +57,7 @@ function setIdTreinofeito(IdtreinoFeito){
 //-------------------------------------------------------//
 
 
-// Esta função serve para pegar todos os treinos 'por realizar' de um atleta e apresentar na pagina. 
+// Esta função serve para pegar todos os treinos 'por realizar' de um atleta e mostra na pagina. 
 
 function readTreinos() {
     $.ajax({
@@ -88,7 +88,7 @@ function readTreinos() {
 }
 
 
-// Esta função serve para pegar todos os treinos  'Realizados' de um atleta selecionado e apresentar na pagina. 
+// Esta função serve para pegar todos os treinos  'Realizados' de um atleta selecionado e mostra na pagina. 
 
 function readTreinosFeitos() {
     $.ajax({
@@ -163,7 +163,7 @@ function readComments() {
 
 /* 
 Esta função pega os dados de todos atletas e insere os seus nomes em um select 
-para um membro da staff selecionar.  
+para um membro da staff selecionar e mostra na pagina.  
 */
 
 function readAtletas()  {
@@ -190,7 +190,7 @@ function readAtletas()  {
 }
 
 
-// Função serve para pegar todos os matreriais disponiveis e mostra na pagina.
+// Esta função serve para pegar todos os materiais disponiveis e mostra na pagina.
 
 function loadMateriaisDisp() {
     $.ajax({
@@ -217,7 +217,7 @@ function loadMateriaisDisp() {
 
 }
 
-// Função serve para pegar todos os feedbacks realizados para um determinado atleta.
+// Esta função serve para pegar todos os feedbacks realizados para um determinado atleta e mostrar.
 
 function readNotificaçoes() {
     $.ajax({
@@ -244,11 +244,11 @@ function readNotificaçoes() {
 }
 
 
-// Esta função serve para pegar todos os exercícios 'Por realizar' e mostra na pagina.
+// Esta função serve para pegar todos os exercícios 'Por realizar' referentes um treino e mostra na pagina.
 
 function readExercicios() {
     $.ajax({
-        url: '/api/plan_treinos/',
+        url: '/api/treinos/plan_treinos/'+sessionStorage.getItem('Idtreino'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -272,11 +272,11 @@ function readExercicios() {
 }
 
 
-// Esta função serve para pegar todos os exercícios 'Realizados' e mostra na pagina.
+// Esta função serve para pegar todos os exercícios 'Realizados'  referentes a um treino e mostra na pagina.
 
 function readExerRealizado() {
     $.ajax({
-        url: '/api/plan_treinos/',
+        url: '/api/treinos/plan_treinos/'+sessionStorage.getItem('Idtreino'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json

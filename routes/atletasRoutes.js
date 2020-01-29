@@ -16,6 +16,7 @@ router.get('/', function (req, res, next) {
   }, next)
 })
 
+
 router.get('/:idAtleta', function (req, res, next) {
 
     atletasDAO.getAtletas(req.params.idAtleta,function (err,result) {

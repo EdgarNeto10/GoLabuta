@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 25-Jan-2020 √†s 01:00
--- Vers√£o do servidor: 8.0.13-4
--- vers√£o do PHP: 7.2.24-0ubuntu0.18.04.2
+-- Generation Time: 29-Jan-2020 ®§s 17:06
+-- Vers?o do servidor: 8.0.13-4
+-- vers?o do PHP: 7.2.24-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES gb2312 */;
 
 --
 -- Database: `EGQ9u0m0HB`
@@ -98,8 +98,8 @@ CREATE TABLE `cal_desportivo` (
 --
 
 INSERT INTO `cal_desportivo` (`cal_desp_id`, `cal_desp_local`, `cal_desp_data`, `cal_desp_jogo`, `cal_desp_jornada`, `cal_desportivo_lat`, `cal_desportivo_long`) VALUES
-(12, 'Est√°dio Jos√© Alvalade', '2020-01-23', 'Sporting VS Benfica', 'Jornada 1', 38.76125745, -9.160795109759835),
-(13, 'Est√°dio do Drag√£o', '2020-01-31', 'Porto VS Benfica', 'Jornada 2', 41.1617848, -8.584780600645765);
+(12, 'Est®¢dio Jos®¶ Alvalade', '2020-01-23', 'Sporting VS Benfica', 'Jornada 1', 38.76125745, -9.160795109759835),
+(13, 'Est®¢dio do Drag?o', '2020-01-31', 'Porto VS Benfica', 'Jornada 2', 41.1617848, -8.584780600645765);
 
 -- --------------------------------------------------------
 
@@ -119,9 +119,9 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id`, `coment_date`, `coment`, `treino`) VALUES
-(74, NULL, 'ded', 6),
-(75, NULL, 'kmm', 2),
-(76, NULL, 'ok', 5);
+(83, NULL, 'O treino correu bem.', 1),
+(84, NULL, 'O treino foi produtivo.', 2),
+(85, NULL, 'jbkjbk', 5);
 
 -- --------------------------------------------------------
 
@@ -156,14 +156,14 @@ CREATE TABLE `epoca` (
 --
 
 INSERT INTO `epoca` (`epoca_id`, `ep_encontro`, `ep_resultado`, `ep_Ngolos`, `ep_local`, `ep_lat`, `ep_long`) VALUES
-(1, ' Benfica - Rio Ave	', ' Benfica 1-0 Rio Ave	', 1, 'Est√°dio dos Arcos', '38.76125745', '-9.160795109759835'),
-(2, 'Benfica - FC Porto', 'Benfica 2-4 FC Porto', 6, 'Est√°dio do Drag√£o', '41.1617848', '-8.584780600645765'),
-(3, 'Benfica - Pa√ßos de Ferreira	', 'Benfica 0-0 Pa√ßos de Ferreira', 0, 'Est√°dio da Mata Real', '41.270668650000005', '-8.384296000022818'),
-(4, 'Benfica - Sporting', 'Benfica 1-3 Sporting', 4, 'Est√°dio Jos√© Alvalade', '38.76125745', '-9.160795109759835'),
-(5, 'Benfica - Belenenses ', 'Benfica 2-0 Belenenses ', 2, 'Est√°dio do Restelo', '38.70240095', '-9.20789132358843'),
-(7, 'Benfica - Porto', 'Benfica 3-0 Porto', 3, 'Est√°dio do Drag√£o', '41.1617848', '-8.584780600645765'),
-(8, 'Benfica - Sporting', 'Benfica 4 - 4 Sporting', 8, 'Est√°dio Jos√© Alvalade', '38.76125745', '-9.160795109759835'),
-(10, 'Benfica - Vit√≥ria Clube de Lisboa', 'Benfica 4-0Vit√≥ria Clube de Lisboa', 4, 'Vit√≥ria Clube de Lisboa', '38.73477705', '-9.120023928679682');
+(1, ' Benfica - Rio Ave	', ' Benfica 1-0 Rio Ave	', 1, 'Est®¢dio dos Arcos', '38.76125745', '-9.160795109759835'),
+(2, 'Benfica - FC Porto', 'Benfica 2-4 FC Porto', 6, 'Est®¢dio do Drag?o', '41.1617848', '-8.584780600645765'),
+(3, 'Benfica - Pa?os de Ferreira	', 'Benfica 0-0 Pa?os de Ferreira', 0, 'Est®¢dio da Mata Real', '41.270668650000005', '-8.384296000022818'),
+(4, 'Benfica - Sporting', 'Benfica 1-3 Sporting', 4, 'Est®¢dio Jos®¶ Alvalade', '38.76125745', '-9.160795109759835'),
+(5, 'Benfica - Belenenses ', 'Benfica 2-0 Belenenses ', 2, 'Est®¢dio do Restelo', '38.70240095', '-9.20789132358843'),
+(7, 'Benfica - Porto', 'Benfica 3-0 Porto', 3, 'Est®¢dio do Drag?o', '41.1617848', '-8.584780600645765'),
+(8, 'Benfica - Sporting', 'Benfica 4 - 4 Sporting', 8, 'Est®¢dio Jos®¶ Alvalade', '38.76125745', '-9.160795109759835'),
+(10, 'Benfica - Vit®Æria Clube de Lisboa', 'Benfica 4-0Vit®Æria Clube de Lisboa', 4, 'Vit®Æria Clube de Lisboa', '38.73477705', '-9.120023928679682');
 
 -- --------------------------------------------------------
 
@@ -183,7 +183,7 @@ CREATE TABLE `Equipa` (
 --
 
 INSERT INTO `Equipa` (`equipa_nome`, `equipa_lat`, `equipa_long`, `equipa_local`) VALUES
-('Equipa 1', 38.75160366, -9.1841409301, 'Est√°dio Sport Lisboa e Benfica');
+('Equipa 1', 38.75160366, -9.1841409301, 'Est®¢dio Sport Lisboa e Benfica');
 
 -- --------------------------------------------------------
 
@@ -202,9 +202,9 @@ CREATE TABLE `Feedback` (
 --
 
 INSERT INTO `Feedback` (`feedback_id`, `staff_feedback`, `atleta`) VALUES
-(13, 'oi', 1),
-(14, 'oie', 3),
-(15, 'iiiii', 3);
+(22, 'Ok, muito bem.', 1),
+(23, 'ok, correr mais.', 1),
+(24, 'bjknkj', 1);
 
 -- --------------------------------------------------------
 
@@ -242,14 +242,14 @@ CREATE TABLE `material` (
 
 INSERT INTO `material` (`material_id`, `mat_nome`, `mat_tipo`, `mat_estado`) VALUES
 (28, 'Air step', 'gym', 'disponivel'),
-(29, 'Cones', 'campo', 'N√£o dispon√≠vel'),
-(30, 'Elastico de resist√™ncia', 'campo', 'disponivel'),
-(31, 'Tonozeleiras ', 'campo', 'N√£o dispon√≠vel'),
+(29, 'Cones', 'campo', 'N?o dispon®™vel'),
+(30, 'Elastico de resist®∫ncia', 'campo', 'disponivel'),
+(31, 'Tonozeleiras ', 'campo', 'N?o dispon®™vel'),
 (32, 'Barras push-up', 'gym', 'disponivel'),
 (33, 'Prensa de pernas', 'gym ', 'disponivel'),
-(34, 'Passadeira silver', 'gym', 'N√£o dispon√≠vel'),
-(35, 'Banco multifun√ß√µes', 'gym', 'disponivel'),
-(36, 'Maquina de abnominal', 'gym', 'N√£o dispon√≠vel');
+(34, 'Passadeira silver', 'gym', 'N?o dispon®™vel'),
+(35, 'Banco multifun??es', 'gym', 'disponivel'),
+(36, 'Maquina de abnominal', 'gym', 'N?o dispon®™vel');
 
 -- --------------------------------------------------------
 
@@ -280,10 +280,14 @@ CREATE TABLE `Plano_Treino` (
 --
 
 INSERT INTO `Plano_Treino` (`plan_treino_id`, `plan_treino_exer`, `Plano_Treino_estd`) VALUES
-(1, 'exercicioA', 'Realizado'),
-(2, 'exercicioB', 'Por realizar'),
-(3, 'exercicioC', 'Por realizar'),
-(4, 'exercicioD', 'Por realizar');
+(1, 'Eleva??es dos bra?os', 'Realizado'),
+(2, 'Flex?o em losango', 'Por realizar'),
+(3, 'Saltar a corda', 'Por realizar'),
+(4, 'Flex?o inclinada', 'Por realizar'),
+(9, 'Pulo lateral', 'Por realizar'),
+(10, 'Agachamentos', 'Por realizar'),
+(11, 'Passe em profundidade', 'Por realizar'),
+(12, 'Remates com o peito do p®¶', 'Por realizar');
 
 -- --------------------------------------------------------
 
@@ -341,14 +345,14 @@ CREATE TABLE `treino` (
 --
 
 INSERT INTO `treino` (`treino_id`, `treino_data`, `treino_tipo`, `treino_local`, `treino_estado`) VALUES
-(1, '2019-12-04', 'Muscula√ß√£o', 'CT Luz', 'Realizado'),
-(2, '2019-12-04', 'Velocidade', 'CT luz', 'Realizado'),
-(5, '2019-12-11', 'Remates', 'CT Luz', 'Por realizar'),
+(1, '2019-12-04', 'Muscula??o', 'CT Luz', 'Realizado'),
+(2, '2019-12-04', 'Velocidade', 'CT luz', 'Por realizar'),
+(5, '2019-12-11', 'Remates', 'CT Luz', 'Realizado'),
 (6, '2019-12-11', 'Passes', 'CT luz', 'Por realizar'),
 (9, '2019-12-23', 'Cruzamentos', 'CT Luz', 'Por realizar'),
 (10, '2019-12-22', 'Drible', 'CT luz', 'Por realizar'),
 (11, '2019-12-13', 'Lances livres', 'CT Luz', 'Por realizar'),
-(12, '2019-12-22', 'Resist√™ncia', 'CT luz', 'Por realizar');
+(12, '2019-12-22', 'Resist®∫ncia', 'CT luz', 'Por realizar');
 
 -- --------------------------------------------------------
 
@@ -359,18 +363,22 @@ INSERT INTO `treino` (`treino_id`, `treino_data`, `treino_tipo`, `treino_local`,
 CREATE TABLE `Treino_Plan` (
   `treino_plan_id` int(11) NOT NULL,
   `treino_plan_treino` int(11) DEFAULT NULL,
-  `treino_plan_plano` int(11) DEFAULT NULL
+  `plan_plano_treino` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `Treino_Plan`
 --
 
-INSERT INTO `Treino_Plan` (`treino_plan_id`, `treino_plan_treino`, `treino_plan_plano`) VALUES
+INSERT INTO `Treino_Plan` (`treino_plan_id`, `treino_plan_treino`, `plan_plano_treino`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 1, 3),
-(4, 1, 4);
+(4, 1, 4),
+(9, 2, 9),
+(10, 2, 10),
+(11, 2, 11),
+(12, 2, 12);
 
 --
 -- Indexes for dumped tables
@@ -479,7 +487,7 @@ ALTER TABLE `treino`
 --
 ALTER TABLE `Treino_Plan`
   ADD PRIMARY KEY (`treino_plan_id`),
-  ADD KEY `Plan_treino_fk_plan` (`treino_plan_plano`),
+  ADD KEY `Plan_treino_fk_plan` (`plan_plano_treino`),
   ADD KEY `Plan_treino_fk_treino` (`treino_plan_treino`);
 
 --
@@ -502,13 +510,13 @@ ALTER TABLE `Atle_Trein`
 -- AUTO_INCREMENT for table `cal_desportivo`
 --
 ALTER TABLE `cal_desportivo`
-  MODIFY `cal_desp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `cal_desp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `epoca`
@@ -520,7 +528,7 @@ ALTER TABLE `epoca`
 -- AUTO_INCREMENT for table `Feedback`
 --
 ALTER TABLE `Feedback`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `material`
@@ -532,7 +540,7 @@ ALTER TABLE `material`
 -- AUTO_INCREMENT for table `Plano_Treino`
 --
 ALTER TABLE `Plano_Treino`
-  MODIFY `plan_treino_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `plan_treino_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `treino`
@@ -544,7 +552,7 @@ ALTER TABLE `treino`
 -- AUTO_INCREMENT for table `Treino_Plan`
 --
 ALTER TABLE `Treino_Plan`
-  MODIFY `treino_plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `treino_plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -587,7 +595,7 @@ ALTER TABLE `staff_treino`
 -- Limitadores para a tabela `Treino_Plan`
 --
 ALTER TABLE `Treino_Plan`
-  ADD CONSTRAINT `Plan_treino_fk_plan` FOREIGN KEY (`treino_plan_plano`) REFERENCES `Plano_Treino` (`plan_treino_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `Plan_treino_fk_plan` FOREIGN KEY (`plan_plano_treino`) REFERENCES `Plano_Treino` (`plan_treino_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `Plan_treino_fk_treino` FOREIGN KEY (`treino_plan_treino`) REFERENCES `treino` (`treino_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 

@@ -4,11 +4,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var con= require('./models/MysqlConn')
 var app = express();
 
 var indexRouter = require('./routes/index');
+
 /*Está a fazer a requisição do router criado */
+
 var  commentsRouter = require('./routes/comentsRoutes');  
 var  treinosRouter = require('./routes/treinosRoutes'); 
 var  materiaisRouter =  require('./routes/materiaisRoutes'); 
@@ -22,6 +23,7 @@ var eq_epocas = require('./routes/equipa_epocaRoutes');
 
 
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -33,16 +35,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* A montar o router com um determinado caminho  */
 
-/* Ou seja quando quando qualquer pedido chegar no meu servidor com o caminho criado (ex:/treinos) 
-  ele  é direcionado para router ligado ao mesmo (ex:treinosRouter)
-*/
 app.use('/api/treinos/comentarios/', commentsRouter);
 app.use('/api/atletas/treinos/', treinosRouter);
 app.use('/api/materiais/', materiaisRouter);
 app.use('/api/atletas/', atletasRouter);
 app.use('/api/equipas/calendarios/', calendariosRouter);
 app.use('/api/atletas/feedBacks/', feedbacksRouter);
-app.use('/api/plan_treinos/', plan_treinosRouter);
+app.use('/api/treinos/plan_treinos/', plan_treinosRouter);
 app.use('/api/staff/', staffRouter);
 app.use('/api/equipas/epocas/', eq_epocas);
 

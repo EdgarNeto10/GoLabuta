@@ -69,12 +69,12 @@ function readStaffindex() {
 //--------------Session Storage------------//
 
 
-// Esta função guarda o id do atleta no session storage da pagina.
+// Esta função guarda o id do atleta no session storage das paginas.
 function setIdAtleta(){
   window.sessionStorage.setItem('atletaId', selecionar_A.value)
 }
 
-// Esta função guarda o id da staff no session storage da pagina.
+// Esta função guarda o id da staff no session storage das paginas.
 function setIdStaff(){
   window.sessionStorage.setItem('staffId', selecionar_S.value)
 }

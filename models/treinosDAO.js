@@ -1,6 +1,7 @@
 
 var pool = require('./MysqlConn').pool;
 
+//Função para testes
 
 module.exports.getAllTreinos=function(callback,next){
     pool.getConnection(function(err,conn){
@@ -49,7 +50,7 @@ module.exports.getTreinos=function(idAtleta,callback,next){
            callback(err,{code: 500, status: "Error in the connection to the database"})
            return;
        }
-       conn.query("select treino_id,treino_tipo,treino_estado,DATE_FORMAT(treino_data,'%d/%m/%Y') as date,atleta_id,atleta_nome,atleta_atle_trein from  treino t join Atle_Trein a on  t.treino_id = a.treino_atle_trein join Atleta x on a.atleta_atle_trein = x.atleta_id where atleta_atle_trein=? ",
+       conn.query("select treino_id,treino_tipo,treino_estado,DATE_FORMAT(treino_data,'%d/%m/%Y') as date,atleta_id,atleta_nome,atleta_atle_trein from  treino t join Atle_Trein a on  t.treino_id = a.treino_atle_trein join Atleta x on a.atleta_atle_trein = x.atleta_id where atleta_atle_trein=?",
        [idAtleta],function(err, results) {
            // VERY IMPORTANT: Always release a connection after you don't need it
            // You can make more then one query but in the last one release it
@@ -65,28 +66,5 @@ module.exports.getTreinos=function(idAtleta,callback,next){
 }
 
 
-/*
-module.exports.saveTreinos=function(treinosId, treino, callback){
-    pool.getConnection(function(err,conn){
-        if (err) {
-            callback(err,{code: 500, status: "Error in the connection to the database"})
-            return;
-        }
-        conn.query('insert into Treino (treino_estado) values(?)', [treino],function(err, results) {
-            // VERY IMPORTANT: Always release a connection after you don't need it
-            // You can make more then one query but in the last one release it
-            conn.release();
-            if (err) {
-                callback(err,{code: 500, status: "Error in a database query"})
-                return;
-            } 
-               callback(false, {code: 200, status:"ok", data: results})
-        })
-    })
-    
-  } 
-
- 
-*/
 
 

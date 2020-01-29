@@ -4,7 +4,7 @@ var router = express.Router();
 var plan_treinosDAO = require("../models/plan_treinosDAO");
 
 
-router.get('/',function (req, res, next) {//Lê todos os tipos de treinos
+router.get('/', function (req, res, next) {
 
   plan_treinosDAO.getAllexercicios(function (err, result) {
     if (err) {
@@ -15,10 +15,9 @@ router.get('/',function (req, res, next) {//Lê todos os tipos de treinos
   }, next)
 })
 
-/*
-router.get('/:idAtleta',function (req, res, next) {//Lê todos os tipos de treinos
+router.get('/:idTreino', function (req, res, next) {
 
-  treinosDAO.getTreinos(req.params.idAtleta,function (err, result) {
+  plan_treinosDAO.getexercicios(req.params.idTreino, function (err, result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -27,21 +26,19 @@ router.get('/:idAtleta',function (req, res, next) {//Lê todos os tipos de trein
   }, next)
 })
 
-*/
 
-router.put('/:idPlan_trein', function(req, res, next) {
-  // req.params.id will be a string, but we don't need an Integer anyway
-  plan_treinosDAO.updateExercicios(req.params.idPlan_trein,req.body.estado,
-      function(err,result){
+router.put('/:idPlan_trein', function (req, res, next) {
+
+  plan_treinosDAO.updateExercicios(req.params.idPlan_trein, req.body.estado,
+    function (err, result) {
       if (err) {
-          // sending error because its for learning/debugging
-          // real project would only send a general message
-          res.statusMessage = result.status;
-          res.status(result.code).json(err);
-          return;
+        
+        res.statusMessage = result.status;
+        res.status(result.code).json(err);
+        return;
       }
       res.status(200).send(result.data);
-  },next)
+    }, next)
 });
 
 

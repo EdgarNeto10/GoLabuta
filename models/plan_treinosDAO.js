@@ -1,8 +1,9 @@
 
 var pool = require('./MysqlConn').pool;
 
+//Função para testes de exercicios
 
-module.exports.getAllexercicios=function(callback,next){
+module.exports.getallexercicios=function(callback,next){
     pool.getConnection(function(err,conn){
        if (err) {
            callback(err,{code: 500, status: "Error in the connection to the database"})
@@ -10,8 +11,28 @@ module.exports.getAllexercicios=function(callback,next){
        }
        conn.query("select * from Plano_Treino",
        function(err, results) {
-           // VERY IMPORTANT: Always release a connection after you don't need it
-           // You can make more then one query but in the last one release it
+           
+           conn.release();
+           if (err) {
+               callback(err,{code: 500, status: "Error in a database query"})
+               return;
+           }        
+          callback(false, {code: 200, status:"ok", data: results})
+        }) 
+          
+ })
+}
+
+
+module.exports.getexercicios=function(idTreino,callback,next){
+    pool.getConnection(function(err,conn){
+       if (err) {
+           callback(err,{code: 500, status: "Error in the connection to the database"})
+           return;
+       }
+       conn.query("select Plano_Treino_estd,treino_plan_treino,plan_plano_treino, plan_treino_id, treino_id, plan_treino_exer from Plano_Treino p join Treino_Plan t on p.plan_treino_id = t.plan_plano_treino join treino tt on tt.treino_id = t.treino_plan_treino where treino_id = ?",[idTreino],
+       function(err, results) {
+          
            conn.release();
            if (err) {
                callback(err,{code: 500, status: "Error in a database query"})
@@ -42,49 +63,3 @@ module.exports.updateExercicios= function(idPlan_trein,newestado,callback) {
     })
 }
 
-/*
-module.exports.getTreinos=function(idAtleta,callback,next){
-    pool.getConnection(function(err,conn){
-       if (err) {
-           callback(err,{code: 500, status: "Error in the connection to the database"})
-           return;
-       }
-       conn.query("select treino_id,treino_tipo,treino_estado,treino_data,atleta_id,atleta_atle_trein from  treino t join Atle_Trein a on  t.treino_id = a.treino_atle_trein join Atleta x on a.atleta_atle_trein = x.atleta_id where atleta_atle_trein=? ",
-       [idAtleta],function(err, results) {
-           // VERY IMPORTANT: Always release a connection after you don't need it
-           // You can make more then one query but in the last one release it
-           conn.release();
-           if (err) {
-               callback(err,{code: 500, status: "Error in a database query"})
-               return;
-           }        
-           callback(false, {code: 200, status:"ok", data: results})
-        }) 
-          
- })
-}
-
-*/
-/*
-module.exports.saveTreinos=function(treinosId, treino, callback){
-    pool.getConnection(function(err,conn){
-        if (err) {
-            callback(err,{code: 500, status: "Error in the connection to the database"})
-            return;
-        }
-        conn.query('insert into Treino (treino_estado) values(?)', [treino],function(err, results) {
-            // VERY IMPORTANT: Always release a connection after you don't need it
-            // You can make more then one query but in the last one release it
-            conn.release();
-            if (err) {
-                callback(err,{code: 500, status: "Error in a database query"})
-                return;
-            } 
-               callback(false, {code: 200, status:"ok", data: results})
-        })
-    })
-    
-  } 
-
- 
-*/

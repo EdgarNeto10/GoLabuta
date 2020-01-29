@@ -56,7 +56,7 @@ function validarTreino() {
 
 function updateExer() {
     $.ajax({
-        url: "/api/plan_treinos/"+localStorage.getItem('idExer'),
+        url: "/api/treinos/plan_treinos/"+localStorage.getItem('idExer'),
         method: "put",
         data: {
             estado: realizado
