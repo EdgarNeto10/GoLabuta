@@ -7,7 +7,7 @@ function addComment() {
 
     
     $.ajax({
-        url: "/api/comentarios/",
+        url: "/api/treinos/comentarios/",
         method: "post",
         data: {
             comment: comment,
@@ -32,7 +32,7 @@ function addFeedBack(){
     var feedback = document.getElementById('feedback').value
     var  atleta = document.getElementById('select').value;
    $.ajax({
-       url:"/api/feedBacks",
+       url:"/api/atletas/feedBacks",
        method:"post",
        data:{
            feedback:feedback,

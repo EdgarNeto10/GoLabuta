@@ -10,7 +10,7 @@ var n;
 
 function updateTreinos() {
     $.ajax({
-        url: "/api/treinos/" + sessionStorage.getItem('Idtreino'),
+        url: "/api/atletas/treinos/" + sessionStorage.getItem('Idtreino'),
         method: "put",
         data: {
             estado: realizado

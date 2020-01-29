@@ -44,7 +44,7 @@ window.onload = function () {
 function readAllMarker() {
 
     $.ajax({
-        url: '/api/calendarios/',
+        url: '/api/equipas/calendarios/',
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -254,7 +254,7 @@ function readMarker() {
     
     $.ajax({
 
-        url: '/api/calendarios/' + localStorage.getItem('IdCalendario'),
+        url: '/api/equipas/calendarios/' + localStorage.getItem('IdCalendario'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -292,7 +292,7 @@ function setIdCalendario(IdCalendario) {
 function readCalendedario() {
     $.ajax({
 
-        url: '/api/calendarios/',
+        url: '/api/equipas/calendarios/',
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -345,7 +345,7 @@ function addCalendario() {
     var local_encontro = document.getElementById("local").value;
 
     $.ajax({
-        url: "/api/calendarios/",
+        url: "/api/equipas/calendarios/",
         method: "post",
         data: {
             jornada: jornada,

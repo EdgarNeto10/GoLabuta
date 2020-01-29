@@ -44,12 +44,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Ou seja quando quando qualquer pedido chegar no meu servidor com o caminho criado (ex:/treinos) 
   ele  é direcionado para router ligado ao mesmo (ex:treinosRouter)
 */
-app.use('/api/comentarios/', commentsRouter);
-app.use('/api/treinos/', treinosRouter);
+app.use('/api/treinos/comentarios/', commentsRouter);
+app.use('/api/atletas/treinos/', treinosRouter);
 app.use('/api/materiais/', materiaisRouter);
 app.use('/api/atletas/', atletasRouter);
-app.use('/api/calendarios/', calendariosRouter);
-app.use('/api/feedBacks/', feedbacksRouter);
+app.use('/api/equipas/calendarios/', calendariosRouter);
+app.use('/api/atletas/feedBacks/', feedbacksRouter);
 app.use('/api/plan_treinos/', plan_treinosRouter);
 app.use('/api/staff/', staffRouter);
 app.use('/api/equipas/epocas/', eq_epocas);

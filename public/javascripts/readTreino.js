@@ -67,7 +67,7 @@ function setIdTreinofeito(IdtreinoFeito){
 
 function readTreinos() {
     $.ajax({
-        url: '/api/treinos/'+sessionStorage.getItem('atletaId'),
+        url: '/api/atletas/treinos/'+sessionStorage.getItem('atletaId'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -124,7 +124,7 @@ function readTreinos() {
 
 function readTreinosFeitos() {
     $.ajax({
-        url: '/api/treinos/' + selecionar.value,
+        url: '/api/atletas/treinos/' + selecionar.value,
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -148,7 +148,7 @@ function readTreinosFeitos() {
 
 function readAllComments() {
     $.ajax({
-        url: '/api/comentarios/',
+        url: '/api/treinos/comentarios/',
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -170,7 +170,7 @@ function readAllComments() {
 
 function readComments() {
     $.ajax({
-        url: '/api/comentarios/'+sessionStorage.getItem('IdtreinoFeito'),
+        url: '/api/treinos/comentarios/'+sessionStorage.getItem('IdtreinoFeito'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
@@ -242,7 +242,7 @@ function loadMateriaisDisp() {
 
 function readNotificaçoes() {
     $.ajax({
-        url: '/api/feedBacks/'+sessionStorage.getItem('atletaId'),
+        url: '/api/atletas/feedBacks/'+sessionStorage.getItem('atletaId'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
