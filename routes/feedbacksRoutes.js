@@ -4,9 +4,9 @@ var router = express.Router();
 var feedbacksDAO = require("../models/feedbacksDAO");
 
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res, next) { // Lê todos os feedbacks
 
-  feedbacksDAO.getAllFeedbacks(function (err,result) {
+  feedbacksDAO.getAllFeedbacks(function (err, result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -15,9 +15,9 @@ router.get('/', function (req, res, next) {
   }, next)
 })
 
-router.get('/:idAtleta', function (req, res, next) {
+router.get('/:idAtleta', function (req, res, next) { // Lê todos feedbacks relacionados a um atleta
 
-  feedbacksDAO.getFeedbacks(req.params.idAtleta,function (err,result) {
+  feedbacksDAO.getFeedbacks(req.params.idAtleta, function (err, result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -30,13 +30,12 @@ router.get('/:idAtleta', function (req, res, next) {
 
 
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res, next) { // Insere todos os feedbacks
   var data = req.body;
   console.log(data);
-  //o parametro data.addData está ligado ao coment
-  // A inserir os dados 
-  feedbacksDAO.saveFeedbacks( data.feedback,data.atleta,
-    function (err,result) {
+
+  feedbacksDAO.saveFeedbacks(data.feedback, data.atleta,
+    function (err, result) {
       res.send(result);
     })
 

@@ -5,12 +5,9 @@ module.exports.getAllCalendarios=function(callback,next){
        if (err) {
            callback(err,{code: 500, status: "Error in the connection to the database"})
            return;
-       }//cal_desp_data
+       }
        conn.query("select DATE_FORMAT(cal_desp_data,'%d/%m/%Y') as cal_desp_data,cal_desp_jogo,cal_desp_jornada,cal_desp_id,cal_desportivo_lat,cal_desportivo_long,equipa_lat,equipa_long  from Equipa, cal_desportivo", function(err, results) {
-      
     
-           // VERY IMPORTANT: Always release a connection after you don't need it
-           // You can make more then one query but in the last one release it
        conn.release();
            if (err) {
                callback(err,{code: 500, status: "Error in a database query"})
@@ -32,8 +29,7 @@ module.exports.getAllCalendarios=function(callback,next){
        }
        conn.query("select * from  Equipa,cal_desportivo where cal_desp_id=?",[idCalendario], 
        function(err, results) {
-           // VERY IMPORTANT: Always release a connection after you don't need it
-           // You can make more then one query but in the last one release it
+           
            conn.release();
            if (err) {
                callback(err,{code: 500, status: "Error in a database query"})

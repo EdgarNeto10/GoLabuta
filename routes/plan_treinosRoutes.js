@@ -4,7 +4,8 @@ var router = express.Router();
 var plan_treinosDAO = require("../models/plan_treinosDAO");
 
 
-router.get('/', function (req, res, next) {
+// Para testes de exercicios
+router.get('/', function (req, res, next) { // Lê todos os exercícios
 
   plan_treinosDAO.getAllexercicios(function (err, result) {
     if (err) {
@@ -15,7 +16,8 @@ router.get('/', function (req, res, next) {
   }, next)
 })
 
-router.get('/:idTreino', function (req, res, next) {
+
+router.get('/:idTreino', function (req, res, next) { // Lê todos os exercícios relacionados a um treino
 
   plan_treinosDAO.getexercicios(req.params.idTreino, function (err, result) {
     if (err) {
@@ -27,12 +29,12 @@ router.get('/:idTreino', function (req, res, next) {
 })
 
 
-router.put('/:idPlan_trein', function (req, res, next) {
+router.put('/:idPlan_trein', function (req, res, next) { // Faz o update de um determinado plano de treino
 
   plan_treinosDAO.updateExercicios(req.params.idPlan_trein, req.body.estado,
     function (err, result) {
       if (err) {
-        
+
         res.statusMessage = result.status;
         res.status(result.code).json(err);
         return;

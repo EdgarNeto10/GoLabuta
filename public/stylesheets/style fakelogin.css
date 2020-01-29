@@ -23,10 +23,7 @@ header{
 main{
   grid-area: main
 }
-/*nav{
-  grid-area: nav;
-  background-color: rgb(115, 177, 177);
-}*/
+
 footer {
   grid-area:footer;
    background-color: rgba(113, 228, 228, 0.555);
@@ -69,10 +66,7 @@ label{
   color:rgb(117, 237, 253);
 }
 
-/*nav ul li{
-  margin: 10px;
-  list-style: none;
-}*/
+
 
       /*Flex Box/*
 

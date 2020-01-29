@@ -351,7 +351,10 @@ function pesquisa() {
     })
 }
 
-// Esta função permite efetuar geocoding(Latitude e Longitude) de um local de encontro.
+/*
+ Esta função permite a configuração do calendário e efetuar geocoding(Latitude e Longitude) 
+de um local de encontro.
+*/
 
 function addCalendario() {
     var jornada = document.getElementById("jornada").value;

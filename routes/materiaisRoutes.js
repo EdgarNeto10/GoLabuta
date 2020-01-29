@@ -4,9 +4,9 @@ var router = express.Router();
 var materiaisDAO = require("../models/materiaisDAO");
 
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res, next) { // Lê todos os materiais 
 
-  materiaisDAO.getMateriais(function (err,result) {
+  materiaisDAO.getMateriais(function (err, result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -19,12 +19,11 @@ router.get('/', function (req, res, next) {
 
 
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res, next) { // Insere todos os materiais
   var data = req.body;
   console.log(data);
-  //o parametro data.addData está ligado ao coment
-  // A inserir os dados 
-   materiaisDAO.saveMateriais( data.comment,
+
+  materiaisDAO.saveMateriais(data.comment,
     function (result) {
       res.send(result);
     })

@@ -3,8 +3,8 @@ var express = require('express');
 var router = express.Router();
 var comentariosDAO = require("../models/comentariosDAO");
 
-
-router.get('/', function (req, res, next) {
+//Para testes
+router.get('/', function (req, res, next) {   // Lê todos os comentários
 
   comentariosDAO.getAllComments(function (err,result) {
     if (err) {
@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/:idTreino', function (req, res, next) {
 
-  comentariosDAO.getComments(req.params.idTreino,function (err,result) {
+  comentariosDAO.getComments(req.params.idTreino,function (err,result) { //Lê todos os comentarios em um determidado treino
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -30,11 +30,9 @@ router.get('/:idTreino', function (req, res, next) {
 
 
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res, next) { // Insere todos os comentários 
   var data = req.body;
   console.log(data);
-  //o parametro data.addData está ligado ao coment
-  // A inserir os dados 
    comentariosDAO.saveComments( data.comment,data.treino,
     function (err,result) {
       res.send(result);

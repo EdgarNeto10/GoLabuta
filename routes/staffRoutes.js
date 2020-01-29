@@ -5,9 +5,9 @@ var atletasDAO = require("../models/staffDAO");
 
 
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res, next) { // Lê toda informação da staff
 
-  atletasDAO.getAllstaff(function (err,result) {
+  atletasDAO.getAllstaff(function (err, result) {
     if (err) {
       res.status(result.code).json(err);
       return;
@@ -16,5 +16,4 @@ router.get('/', function (req, res, next) {
   }, next)
 })
 
-  module.exports = router; 
-  
+module.exports = router;

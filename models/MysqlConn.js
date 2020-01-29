@@ -21,30 +21,3 @@ var pool  = mysql.createPool({
 
 module.exports.pool = pool;  
    
-
-// Variavel --conectar--  recebe a funcão que cria a conexão a BD e suas propriedades.
-
-/*var conectar =  mysql.createConnection({
-    host     : 'remotemysql.com',
-    user     : 'EGQ9u0m0HB',
-    password : 'aom22K8zDk',//pass:aom22K8zDk
-    database : 'EGQ9u0m0HB'
-
-
-
-})
-*/
-//Variavel --conetar-- chama a função connect para determinar o funcionamento da BD quando estiver conectada. 
-
-
-/*pool.connect(function(error){
-    if(error ){
-        console.log('ERRO');
-    }
-    else{
-        console.log('Conectado');
-    }
-
-
-});
-*/

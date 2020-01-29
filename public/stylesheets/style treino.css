@@ -52,7 +52,7 @@ a:hover{
 
  aside {
   grid-area:aside;
-  /*background-color: blue;*/
+
   padding:0px 0px 0px 0px;
   
 
@@ -108,9 +108,7 @@ textarea{
 .plantreino{
   grid-area: main;
   display: flex;
-  /*justify-content:center;*/
   flex-direction: column;
-  /*margin:0px 0px 0px 100px;*/
   align-items: flex-start;
 }
 
@@ -126,11 +124,6 @@ h3{
 #mapid { 
   height: 300px; 
 }
-
-
-
-
-
 
 body main p{
   color: greenyellow;

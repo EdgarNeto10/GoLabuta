@@ -46,7 +46,6 @@ a:hover{
 
  aside {
   grid-area:aside;
-  /*background-color: blue;*/
   padding:0px 0px 0px 0px;
   border-style: solid;
   border-right-style: solid;

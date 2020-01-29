@@ -1,94 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>GoLabuta</title>
-      <!--A usar cdn jquery-->
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script type="text/javascript" src="./javascripts/addTreinos.js"></script>
-      <script type="text/javascript" src='./javascripts/readTreino.js'></script>
-      <script type="text/javascript" src='./javascripts/updateTreinos.js'></script>
-      <link rel="stylesheet"  type="text/css" href="./stylesheets/style treino.css" />   
-  
-   </head>
-    
 
-    <body>
-      <header>   
-        <h1> GoLabuta</h1>
-      </header>
-      <nav>
-          <ul>
-            <img class='img' src="./images/atleta.png">
-            <li><a href="./Home-page atleta.html">Home</a></li>
-            <li><a href="Treinos.html">Treinos</a></li>
-            <li><a href="./calendario atleta.html">Calendário Desportivo</a></li>
-            <section class="move"> 
-                <li><a href="./notificacao.html">Notificações </a></li>
-                <li><a href="./index.html">Log out</a></li>
-            </section>
-            
-      
-      
-          </ul>
-        </nav>
-      
-<!--
-<aside>
-          <img id='img_atle' src="./images/atleta.png">
-          <label id='atleta_nome'></label>
-        <ul>
-          <li><a href="#">Planos de nutrição</a></li>    
-        <ul>
-      </aside>
--->
-      
+<head>
+  <title>GoLabuta</title>
+  <!--A usar cdn jquery-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./javascripts/addTreinos.js"></script>
+  <script type="text/javascript" src='./javascripts/readTreino.js'></script>
+  <script type="text/javascript" src='./javascripts/updateTreinos.js'></script>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/style treino.css" />
 
-      <main>  
-        <section>
-          <header>
-            <h3>TREINO</h3>
-          </header>
-           <!--
-          <p>
-            Selecionar qualquer atleta :
-            <select id="select" >
-                  
-            </select>
-           <input type="button" value="Mudar" onclick='readTreinos()'> 
-            </p>
-          -->
-          
-          <section class="plantreino">  
-            
-            <section class="treinos">
-              <label >Exercícios</br></label>
-              <ul id="exercicios">
-              
-               
-              </ul>
-              <p id='submeter'></p>
+</head>
 
-              <p id="comentar"></p>
-                <label for="comentario">Comentário</br></label>
-                <textarea  id="comentario" placeholder="Comentário" name="comentario"></textarea></br>
-                <p id='comentarios'></p>
-                <input  id="enviar" type="button" value="Realizar comentário"  onclick="addComment()"/> 
-            </section>
-            <p id="coment"></p> 
-            <section class="material">
-                  <label><p><label>Pretende requisitar materiais ?</label><input onclick="loadMateriaisDisp()" value='SIM'type="button"></p></br></label>
-            
-                <ul id="requisitar" ></ul>
-              <input type="button" value="Finalizar treino" onclick="validarTreino()">
-            </section>
-         
+
+<body>
+  <header>
+    <h1> GoLabuta</h1>
+  </header>
+  <nav>
+    <ul>
+      <img class='img' src="./images/atleta.png">
+      <li><a href="./Home-page atleta.html">Home</a></li>
+      <li><a href="Treinos.html">Treinos</a></li>
+      <li><a href="./calendario atleta.html">Calendário Desportivo</a></li>
+      <section class="move">
+        <li><a href="./notificacao.html">Notificações </a></li>
+        <li><a href="./index.html">Log out</a></li>
       </section>
-    
-    </main>
 
-    <footer>
-      <p>Copyright © GoLabuta 2020</p>
-    </footer>
 
-  </body>
- </html>
+
+    </ul>
+  </nav>
+
+
+
+  <main>
+    <section>
+      <header>
+        <h3>TREINO</h3>
+      </header>
+
+
+      <section class="plantreino">
+
+        <section class="treinos">
+          <label>Exercícios</br></label>
+          <ul id="exercicios">
+
+
+          </ul>
+          <p id='submeter'></p>
+
+          <p id="comentar"></p>
+          <label for="comentario">Comentário</br></label>
+          <textarea id="comentario" placeholder="Comentário" name="comentario"></textarea></br>
+          <p id='comentarios'></p>
+          <input id="enviar" type="button" value="Realizar comentário" onclick="addComment()" />
+        </section>
+        <p id="coment"></p>
+        <section class="material">
+          <label>
+            <p><label>Pretende requisitar materiais ?</label><input onclick="loadMateriaisDisp()" value='SIM'
+                type="button"></p></br>
+          </label>
+
+          <ul id="requisitar"></ul>
+          <input type="button" value="Finalizar treino" onclick="validarTreino()">
+        </section>
+
+      </section>
+
+  </main>
+
+  <footer>
+    <p>Copyright © GoLabuta 2020</p>
+  </footer>
+
+</body>
+
+</html>
