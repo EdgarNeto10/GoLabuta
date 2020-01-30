@@ -1,6 +1,7 @@
 
 // Variaveis globais
 cf = 0;
+cc = 0;
 //-------------------------------------------------------------
 //-------------------------------------------------------------
 
@@ -21,9 +22,9 @@ function addComment() {
 
         },
         success: function (res, status) {
-            c = c + 1
+            cc = cc + 1
             if (res.status == "ok")
-                document.getElementById("comentarios").innerHTML = [c] + 'º comentário realizado com sucesso'
+                document.getElementById("comentarios").innerHTML = [cc] + 'º comentário realizado com sucesso'
             else console.log(res.status);
         },
         error: function (err) {
