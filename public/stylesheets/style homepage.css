@@ -25,7 +25,8 @@ header{
 nav{
   grid-area: nav;
   background-color: rgba(113, 228, 228, 0.555);
-  
+
+ 
 }
 
 main{
@@ -165,3 +166,8 @@ ul li img{
     margin-left: 80px;
   }
 
+  #nome{
+    color:  rgb(181, 242, 247);
+    font-size: 18px;
+   
+  }

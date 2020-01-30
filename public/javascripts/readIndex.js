@@ -9,6 +9,7 @@ window.onload = function () {
     selecionar_S= document.getElementById('select_staff');
     readAtletasindex();
     readStaffindex();
+    readAtletasNomes()
    
 }
 
@@ -65,6 +66,34 @@ function readStaffindex() {
 })
 
 }
+
+
+//Esta função pega o nome de um determinado atleta e mostra na pagina.
+
+function readAtletasNomes() {
+  $.ajax({
+      url: '/api/atletas/'+sessionStorage.getItem('atletaId'),
+      method: 'get',
+      contentType: "application/json", // sending in json
+      dataType: "json",// receiving in json
+      success: function (res, status) {
+          var html = "";
+
+          nomes = res
+          for (i in nomes) {
+              html += '<li>' + nomes[i].atleta_nome + '</li>'
+
+          }
+
+          nome.innerHTML = html;
+      },
+      error: function () {
+
+      }
+  })
+
+}
+
 
 //--------------Session Storage------------//
 

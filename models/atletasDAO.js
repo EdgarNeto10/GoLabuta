@@ -27,7 +27,7 @@ module.exports.getAtletas=function(idAtleta,callback,next){
            callback(err,{code: 500, status: "Error in the connection to the database"})
            return;
        }
-       conn.query("select atleta_nome,atleta_imagem,atleta_lat,atleta_long from Atleta where atleta_id=?",[idAtleta], function(err, results) {
+       conn.query("select atleta_nome,atleta_id from Atleta where atleta_id=?",[idAtleta], function(err, results) {
            
            conn.release();
            if (err) {

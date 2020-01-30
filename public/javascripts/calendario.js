@@ -121,7 +121,7 @@ function readHistoricoRotas() {
                 //A adicionar os pontos das equipas adversarias
 
                 marker = L.marker([chegada[i].ep_lat, chegada[i].ep_long]).addTo(mymap);
-                marker.bindPopup(chegada[i].ep_local + ' ' + c);//Nome da equipa
+                marker.bindPopup(chegada[i].ep_local);//Nome da equipa adversária
 
                 /*
                 O ponto A e B desenham uma linha recta
@@ -194,7 +194,7 @@ function clear() {
 // Esta função serve para pegar o histórico  de golos nas epoca passadas
 
 function readHistoricoGolos() {
-
+   
 
     //mymap.removeLayer(marker);
 
@@ -204,7 +204,7 @@ function readHistoricoGolos() {
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
         success: function (res, status) {
-
+           
             chegada = res
             partida = res
 
@@ -216,7 +216,7 @@ function readHistoricoGolos() {
                 //A adicionar os pontos das equipas adversarias
 
                 marker = L.marker([chegada[i].ep_lat, chegada[i].ep_long]).addTo(mymap);
-                marker.bindPopup(chegada[i].ep_local + '<br>' + chegada[i].ep_resultado + '<br>' + 'Foram marcados ' + chegada[i].ep_Ngolos + ' golos neste campo');//Nome da equipa
+                marker.bindPopup(chegada[i].ep_local + '<br>' + chegada[i].ep_resultado + '<br>' + 'Foram marcados ' + chegada[i].ep_Ngolos + ' golos neste campo');//Nome da equipa e resultados e golos no estadio adversário
 
                 /*
                A adicionar o raio ao mapa, o raio aumenta dependendo do numero 
@@ -254,7 +254,7 @@ function readHistoricoGolos() {
  a equipa e dar a rota  para os encontros.
 */
 
-function readMarker() {
+function readRotaEncontro() {
 
     $.ajax({
 
@@ -273,7 +273,9 @@ function readMarker() {
                         L.latLng(chegada[i].cal_desportivo_lat, chegada[i].cal_desportivo_long),
                         L.latLng(partida[i].equipa_lat, partida[i].equipa_long)
                     ],
-                    routeWhileDragging: false
+                    routeWhileDragging: false,
+                    //draggableWaypoints: false, /* Manter os markers estaticos, não está a ser utilizadoa por falhas do serviço */.
+                    //addWaypoints:false,
                 }).addTo(mymap);
 
             }
@@ -297,7 +299,8 @@ function setIdCalendario(IdCalendario) {
 
 /*
 Esta função vai pegar as informações de um calendário desportivo relacionado 
-a equipa e mostrar as datas e os encontros que a equipa irá realizar.
+a equipa e mostrar as datas e os encontros que a equipa irá realizar
+disponiblizando também o botão de localização do encontro.
 */
 
 function readCalendedario() {
@@ -311,7 +314,7 @@ function readCalendedario() {
             jogo = res
             var html = ""
             for (i in jogo) {
-                html += jogo[i].cal_desp_jornada + '<br>' + "<p onclick= style='background-color:lime'>" + jogo[i].cal_desp_data + ' ' + jogo[i].cal_desp_jogo + " <input type='button' id='local' value='Localização' onclick='setIdCalendario(" + jogo[i].cal_desp_id + ");readMarker()'></p>";
+                html += jogo[i].cal_desp_jornada + '<br>' + "<p onclick= style='background-color:lime'>" + jogo[i].cal_desp_data + ' ' + jogo[i].cal_desp_jogo + " <input type='button' id='local' value='Localização' onclick='setIdCalendario(" + jogo[i].cal_desp_id + ");readRotaEncontro()'></p>";
 
             }
             encontro.innerHTML = html;

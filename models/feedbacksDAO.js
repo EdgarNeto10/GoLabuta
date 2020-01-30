@@ -31,8 +31,7 @@ module.exports.getFeedbacks=function(idAtleta,callback,next){
            return;
        }
        conn.query("select atleta,staff_feedback from Feedback where atleta=?",[idAtleta], function(err, results) {
-           // VERY IMPORTANT: Always release a connection after you don't need it
-           // You can make more then one query but in the last one release it
+           
            conn.release();
            if (err) {
                callback(err,{code: 500, status: "Error in a database query"})

@@ -34,6 +34,7 @@ window.onload = function () {
     readAtletas();
     readExerRealizado();
     readComments();
+    
 }
   
 //-----------------Session Storage--------------------//
@@ -74,7 +75,6 @@ function readTreinos() {
                
                 
                 html += "<p onclick='setIdTreino("+treinar[i].treino_id+");' style='cursor: pointer;'>" +treinar[i].date+ ' - ' + treinar[i].treino_tipo + "</p>";
-                str  += treinar[i].atleta_nome
             }
 
             treinos.innerHTML = html;
@@ -298,6 +298,8 @@ function readExerRealizado() {
     })
 
 }
+
+
 
 
 
