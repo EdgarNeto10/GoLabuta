@@ -276,7 +276,7 @@ function readExercicios() {
 
 function readExerRealizado() {
     $.ajax({
-        url: '/api/treinos/plan_treinos/'+sessionStorage.getItem('Idtreino'),
+        url: '/api/treinos/plan_treinos/'+sessionStorage.getItem('IdtreinoFeito'),
         method: 'get',
         contentType: "application/json", // sending in json
         dataType: "json",// receiving in json
