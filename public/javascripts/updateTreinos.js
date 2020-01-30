@@ -1,6 +1,6 @@
 // Variaveis globais
 var str;
-var c;
+var ct = 0;
 var realizado = 'Realizado'
 var PorRealizar = 'Por realizar'
 var n;
@@ -77,16 +77,16 @@ function updateExer() {
 // Esta função serve para validar se um exercicio foi realizado'.
 
 function validarExercicio(exerpos) {
-    c = c + 1
+    ct = ct + 1
         window.localStorage.setItem('idExer',exerpos)
         var r = confirm("Realizou o exercicio?");
         if (r == true) {
             updateExer()
-            if (c == 1)
-                document.getElementById("submeter").innerHTML = "Realizou " + [c] + " exercicio";
+            if (ct == 1)
+                document.getElementById("submeter").innerHTML = "Realizou " + [ct] + " exercicio";
             else
     
-                document.getElementById("submeter").innerHTML = "Realizou " + [c] + " exercicios";
+                document.getElementById("submeter").innerHTML = "Realizou " + [ct] + " exercicios";
         }
         else if (r == false) {
             readExercicios()

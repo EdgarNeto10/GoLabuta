@@ -1,6 +1,6 @@
 
 // Variaveis globais
-c = 0;
+cf = 0;
 //-------------------------------------------------------------
 //-------------------------------------------------------------
 
@@ -47,8 +47,9 @@ function addFeedBack() {
             atleta: atleta
         },
         success: function (res, status) {
+            cf = cf + 1
             if (res.status == "ok") {
-                document.getElementById("msg").innerHTML = "FeedBack inserido com sucesso";
+                document.getElementById("msgF").innerHTML = [cf]+" feedBack inserido com sucesso";
             }
             else console.log(res.status);
         },

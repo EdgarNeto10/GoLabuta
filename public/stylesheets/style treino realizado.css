@@ -154,4 +154,8 @@ ul li img{
       list-style: none;
     }
     
-
+    
+body main p{
+  color: greenyellow;
+}
+    
