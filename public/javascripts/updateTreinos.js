@@ -32,14 +32,11 @@ function updateTreinos() {
 // Esta função serve para validar se um treino foi realizado'.
 
 function validarTreino() {
-    c = c + 1
+  
     var r = confirm("Realizou o treino?");
     if (r == true) {
         updateTreinos() ;
-        if (c == 1)
-            document.getElementById("submeter").innerHTML = "Realizou " + [c] + " treino";
-        else
-            document.getElementById("submeter").innerHTML = "Realizou " + [c] + " treinos";
+       
     }
     else if (r == false) {
         readExercicios();
