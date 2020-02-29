@@ -1,5 +1,6 @@
 Enquadramento:
 
+    
     O mundo do desporto sempre foi bastante competitivo e com a evolução tecnológica existem várias formas de se conseguir avaliar 
   a prestação e a condição física de um atleta. Desta forma o sucesso de uma equipa em qualquer um desporto, provém em grande parte 
   da capacidade de promover estratégias de  cooperação e colaboração entre os dirigentes, treinadores e atletas.
