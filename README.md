@@ -1,5 +1,5 @@
-# FANI
-Ferramenta de Autoria de Narrativa Interativas 
+# GoLabuta
+Plataforma de gestão de atividades desportivas.
 
 ## Autores:
 
