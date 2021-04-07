@@ -63,3 +63,4 @@ typings/
 
 # .DS_Store don't save because is only a mac file
 echo .DS_Store >> ~/.gitignore
+.DS_Store

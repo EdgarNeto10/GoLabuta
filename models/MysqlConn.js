@@ -14,9 +14,9 @@ var url = require('url')
 var pool  = mysql.createPool({
     connectionLimit : 10,
     host     : 'remotemysql.com',
-    user     : 'EGQ9u0m0HB',
-    password : 'aom22K8zDk',
-    database : 'EGQ9u0m0HB'
+    user     : 'lEDJSNsZTV',
+    password : 'DmPIpyQxh0',
+    database : 'lEDJSNsZTV'
 });
 
 module.exports.pool = pool;  
